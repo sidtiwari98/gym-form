@@ -1,0 +1,18 @@
+{
+  "name": "Gym Form",
+  "short_name": "Gym Form",
+  "description": "Front and side view form reference for a 5-day upper / lower / arms split.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0a0d12",
+  "theme_color": "#0a0d12",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
