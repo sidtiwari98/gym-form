@@ -50,6 +50,8 @@ export type PoseAngles = {
   sShinL: number;
   sThighR: number;
   sShinR: number;
+  /** Foreshortens the torso itself, for a body hinged toward or away from the camera. */
+  sTorso: number;
   /** Pelvis position. Only used when the pose is not ground-locked. */
   rootX: number;
   rootY: number;
@@ -76,6 +78,7 @@ export const NEUTRAL: PoseAngles = {
   sShinL: 1,
   sThighR: 1,
   sShinR: 1,
+  sTorso: 1,
   rootX: 50,
   rootY: 52,
 };
@@ -145,8 +148,8 @@ export function solve(pose: PoseAngles, view: View, groundLock = true): Skeleton
   const py = Math.sin(t);
 
   const pelvis: Vec = { x: pose.rootX, y: pose.rootY };
-  const chest = step(pelvis, pose.torso, L.torso);
-  const neck = step(chest, pose.torso, L.neck);
+  const chest = step(pelvis, pose.torso, L.torso * pose.sTorso);
+  const neck = step(chest, pose.torso, L.neck * pose.sTorso);
   const head = step(neck, pose.head, L.head);
 
   const off = (base: Vec, amount: number): Vec => ({
@@ -297,6 +300,7 @@ export function sym(
     forearmS?: number;
     thighS?: number;
     shinS?: number;
+    torsoS?: number;
     rootX?: number;
     rootY?: number;
   },
@@ -329,6 +333,7 @@ export function sym(
   if (p.forearmS !== undefined) { out.sForearmL = p.forearmS; out.sForearmR = p.forearmS; }
   if (p.thighS !== undefined) { out.sThighL = p.thighS; out.sThighR = p.thighS; }
   if (p.shinS !== undefined) { out.sShinL = p.shinS; out.sShinR = p.shinS; }
+  if (p.torsoS !== undefined) out.sTorso = p.torsoS;
   if (p.rootX !== undefined) out.rootX = p.rootX;
   if (p.rootY !== undefined) out.rootY = p.rootY;
   return out;

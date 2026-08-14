@@ -19,8 +19,8 @@ export const back: Exercise[] = [
         pose({ torso: 140, hipL: -6, hipR: -6, kneeL: 6, kneeR: 6 }, { shoulderL: -70, elbowL: 70, shoulderR: -70, elbowR: 70 }),
       ],
       front: [
-        pose({ torso: 178, ...sym("front", { hip: 5, knee: 4 }) }, sym("front", { shoulder: 10, elbow: 8 })),
-        pose({ torso: 178, ...sym("front", { hip: 5, knee: 4 }) }, sym("front", { shoulder: 62, elbow: -60, forearmS: 0.75 })),
+        pose({ torso: 180, ...sym("front", { hip: 7, knee: 6, torsoS: 0.5 }) }, sym("front", { shoulder: 8, elbow: 6 })),
+        pose({ torso: 180, ...sym("front", { hip: 7, knee: 6, torsoS: 0.5 }) }, sym("front", { shoulder: 68, elbow: -54, forearmS: 0.7 })),
       ],
     },
     props: {
@@ -32,7 +32,7 @@ export const back: Exercise[] = [
         { kind: "spine", label: "flat back" },
         { kind: "trace", of: "hands" },
       ],
-      front: [{ kind: "mark", at: "elbowL", label: "elbows past the ribs", dy: -8 }],
+      front: [{ kind: "mark", at: "elbowL", label: "hinged over · elbows wide and back", dy: -8 }],
     },
     cues: [
       "Hinge at the hips to roughly 45° or a bit lower, knees softly bent, and hold that torso angle for the whole set.",
@@ -58,29 +58,29 @@ export const back: Exercise[] = [
     tempo: 3.4,
     frames: {
       side: [
-        pose({ torso: 182, hipL: -25, hipR: -25, kneeL: -100, kneeR: -100, ankleL: 40, ankleR: 40, rootX: 50, rootY: 70 },
+        pose({ torso: 182, hipL: -28, hipR: -28, kneeL: -90, kneeR: -90, ankleL: -84, ankleR: -84, rootX: 52, rootY: 70 },
           { shoulderL: 178, elbowL: 178, shoulderR: 178, elbowR: 178 }),
-        pose({ torso: 188, hipL: -25, hipR: -25, kneeL: -100, kneeR: -100, ankleL: 40, ankleR: 40, rootX: 50, rootY: 58.2 },
+        pose({ torso: 188, hipL: -28, hipR: -28, kneeL: -90, kneeR: -90, ankleL: -84, ankleR: -84, rootX: 52, rootY: 58.2 },
           { shoulderL: 235, elbowL: 125, shoulderR: 235, elbowR: 125 }),
       ],
       front: [
-        pose({ torso: 180, rootX: 50, rootY: 70, ...sym("front", { hip: 16, knee: -84, ankle: 50 }) }, sym("front", { shoulder: 160, elbow: 178 })),
-        pose({ torso: 180, rootX: 50, rootY: 64, ...sym("front", { hip: 16, knee: -84, ankle: 50 }) }, sym("front", { shoulder: 128, elbow: 206 })),
+        pose({ torso: 180, rootX: 50, rootY: 70, ...sym("front", { hip: 13, knee: 6, thighS: 0.72, shinS: 0.26 }) }, sym("front", { shoulder: 158, elbow: 178 })),
+        pose({ torso: 180, rootX: 50, rootY: 64, ...sym("front", { hip: 13, knee: 6, thighS: 0.72, shinS: 0.26 }) }, sym("front", { shoulder: 126, elbow: 206 })),
       ],
     },
     groundLock: { side: false, front: false },
     props: {
       side: [
-        { kind: "beam", y: 17.5, x1: 30, x2: 74, thick: 3 },
-        { kind: "post", x: 72, y1: 17.5, y2: 93 },
-        { kind: "roller", at: "kneeL", dy: 6, r: 5.5 },
+        { kind: "beam", y: 17.5, x1: 30, x2: 78, thick: 3 },
+        { kind: "post", x: 76, y1: 17.5, y2: 93 },
+        // The knee platform is counterweighted, so it rides up and down with the lifter.
+        { kind: "padAt", at: "kneeL", angle: 0, len: 28, thick: 5, dx: -9, dy: 6 },
       ],
       front: [
         { kind: "beam", y: 17.5, x1: 22, x2: 78, thick: 3 },
         { kind: "post", x: 24, y1: 17.5, y2: 93 },
         { kind: "post", x: 76, y1: 17.5, y2: 93 },
-        { kind: "roller", at: "kneeL", dy: 6, r: 5.5 },
-        { kind: "roller", at: "kneeR", dy: 6, r: 5.5 },
+        { kind: "padAt", at: "kneeL", angle: 0, len: 30, thick: 5, dx: -3.5, dy: 7 },
       ],
     },
     overlays: {
