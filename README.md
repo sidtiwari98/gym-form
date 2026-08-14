@@ -13,11 +13,24 @@ overlays around the resulting skeleton.
 
 ```bash
 npm install
-npm run dev
+npm run dev      # http://localhost:3000
 ```
 
 `/dev` renders a contact sheet of every exercise in both views at the start and
 end of the rep. That's the fastest way to eyeball pose changes.
+
+### Testing on your phone
+
+```bash
+npm run preview  # builds, then serves on all interfaces
+npm run lan      # prints the URL to open on your phone
+```
+
+Use `preview`, not `dev`. Next blocks cross-origin requests to dev resources,
+and Turbopack's HMR websocket rejects the upgrade from another device on the
+network. The page still server-renders, so it *looks* fine — but the client
+bundle never finishes hydrating and nothing on the page responds to taps. The
+production server has neither restriction.
 
 ## Layout
 

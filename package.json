@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "preview": "next build && next start -H 0.0.0.0",
+    "lan": "node scripts/lan-url.mjs"
   },
   "dependencies": {
     "next": "16.3.1",
