@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #0a0d12;
+  --panel: #141922;
+  --panel-2: #1b222d;
+  --line: #27303d;
+  --text: #e8edf5;
+  --muted: #93a1b5;
+  --accent: #ffb340;
+  --accent-dim: #4a3617;
+
+  /* Figure palette */
+  --fig: #c9d4e3;
+  --fig-edge: #141922;
+  --fig-far: #56626f;
+  --gear: #7f8ea3;
+  --gear-dark: #3a4553;
+  --pad: #3d4a5c;
+  --frame: #566476;
+  --cable: #6c7a8c;
+  --floor: #2b3542;
+  --m1: #ff8a3d;
+  --m2: #3ec5f0;
+  --cue: #ffd166;
+  --bad: #ff6b6b;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #f5f7fa;
+    --panel: #ffffff;
+    --panel-2: #eef2f7;
+    --line: #d9e0ea;
+    --text: #131820;
+    --muted: #5c6a7d;
+    --accent: #b45309;
+    --accent-dim: #fde9c8;
+
+    --fig: #414d5f;
+    --fig-edge: #ffffff;
+    --fig-far: #a7b3c2;
+    --gear: #77879b;
+    --gear-dark: #cbd4e0;
+    --pad: #b4c0cf;
+    --frame: #8b98a9;
+    --cable: #94a2b3;
+    --floor: #cdd6e1;
+    --m1: #e2591b;
+    --m2: #1690b8;
+    --cue: #a16207;
+    --bad: #c2331f;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-panel2: var(--panel-2);
+  --color-line: var(--line);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+}
+
+html {
+  background: var(--bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Room for the iPhone home indicator when this runs as an installed PWA. */
+  padding-bottom: env(safe-area-inset-bottom);
+  overscroll-behavior-y: none;
+}
+
+/* Taps shouldn't leave a flashing highlight on a phone. */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
