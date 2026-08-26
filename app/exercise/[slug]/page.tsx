@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ExerciseViewer from "@/components/ExerciseViewer";
+import GuideViewer from "@/components/GuideViewer";
 import ExerciseNav from "@/components/ExerciseNav";
 import { EXERCISES, getExercise } from "@/lib/exercises";
 import { getDay } from "@/lib/routine";
+import { getGuideArt } from "@/lib/guide";
 import { MUSCLE_LABEL } from "@/lib/types";
 
 export function generateStaticParams() {
@@ -21,6 +22,7 @@ export default async function ExercisePage({
   const ex = getExercise(slug);
   if (!ex) notFound();
 
+  const art = getGuideArt(slug);
   const day = dayId ? getDay(dayId) : undefined;
   const index = i ? parseInt(i, 10) : NaN;
 
@@ -45,7 +47,7 @@ export default async function ExercisePage({
         </div>
       </header>
 
-      <ExerciseViewer ex={ex} />
+      {art && <GuideViewer ex={ex} art={art} />}
 
       <section className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-3.5">
         <div className="text-[12px] font-bold uppercase tracking-wider text-[var(--muted)] mb-2">

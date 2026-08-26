@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import Figure from "./Figure";
+import GuideFigure from "./GuideFigure";
 import { getExercise } from "@/lib/exercises";
+import { getGuideArt } from "@/lib/guide";
 import { useWeek } from "@/lib/useWeek";
 import type { Day } from "@/lib/types";
 
@@ -10,7 +11,6 @@ export default function DayWork({ day }: { day: Day }) {
   const [week, setWeek] = useWeek();
   const hasSwaps = day.work.some((w) => w.swapFor);
 
-  let lastGroup: string | undefined;
 
   return (
     <div>
@@ -36,9 +36,11 @@ export default function DayWork({ day }: { day: Day }) {
           const slug = week === 2 && w.swapFor ? w.swapFor : w.slug;
           const ex = getExercise(slug);
           if (!ex) return null;
+          const art = getGuideArt(slug);
           const swapped = week === 2 && !!w.swapFor;
-          const showGroup = w.group && w.group !== lastGroup;
-          lastGroup = w.group;
+          // A group heading shows on the first row of each run, read off the
+          // previous row rather than carried in a variable across renders.
+          const showGroup = w.group && w.group !== day.work[i - 1]?.group;
 
           return (
             <li key={`${w.slug}-${i}`}>
@@ -51,9 +53,12 @@ export default function DayWork({ day }: { day: Day }) {
                 href={`/exercise/${slug}?day=${day.id}&i=${i}`}
                 className="flex items-center gap-3 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-2.5 active:bg-[var(--panel-2)]"
               >
-                <div className="shrink-0 w-[62px] h-[62px] rounded-xl bg-[var(--panel-2)] overflow-hidden">
-                  <Figure ex={ex} view="side" phase={0.5} showMuscles showCues={false} />
-                </div>
+                {art && (
+                  <div className="shrink-0 w-[62px] h-[62px] rounded-xl bg-[var(--panel-2)] overflow-hidden">
+                    {/* Mid-rep, held: a list of animating thumbnails is unreadable. */}
+                    <GuideFigure art={art} pos={1} debug alt="" />
+                  </div>
+                )}
                 <div className="min-w-0 flex-1">
                   <div className="font-semibold text-[15px] leading-tight">{ex.name}</div>
                   <div className="text-[13px] text-[var(--muted)] mt-0.5 tabular-nums">

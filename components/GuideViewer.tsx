@@ -1,22 +1,26 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Figure from "./Figure";
+import GuideFigure from "./GuideFigure";
+import { GUIDE_CREDIT, type GuideArt } from "@/lib/guide";
 import type { Exercise } from "@/lib/types";
-import type { View } from "@/lib/rig";
 
 const SPEEDS = [0.5, 1, 1.5];
 
-export default function ExerciseViewer({ ex }: { ex: Exercise }) {
+/**
+ * Plays the three catalogue frames as a rep.
+ *
+ * Ping-pongs bottom -> top -> bottom rather than looping 1-2-3-1: the jump
+ * back to the start would be the one cut with no movement to explain it, and
+ * it's also what a rep actually looks like.
+ */
+export default function GuideViewer({ ex, art }: { ex: Exercise; art: GuideArt }) {
   const [phase, setPhase] = useState(0);
   const [playing, setPlaying] = useState(true);
   const [speed, setSpeed] = useState(1);
-  const [muscles, setMuscles] = useState(true);
-  const [cues, setCues] = useState(true);
-  const [focus, setFocus] = useState<View | null>(null);
 
   const raf = useRef<number | null>(null);
-  const last = useRef<number>(0);
+  const last = useRef(0);
 
   useEffect(() => {
     if (!playing) return;
@@ -34,28 +38,20 @@ export default function ExerciseViewer({ ex }: { ex: Exercise }) {
     };
   }, [playing, speed, ex.tempo]);
 
-  const views: View[] = focus ? [focus] : ["front", "side"];
-  const label = (v: View) => ex.viewLabels?.[v] ?? (v === "front" ? "Front" : "Side");
+  // Triangle wave: 0 -> 2 -> 0 across one cycle.
+  const pos = phase < 0.5 ? phase * 4 : (1 - phase) * 4;
 
   return (
     <div>
-      <div className={`grid gap-2 ${focus ? "grid-cols-1" : "grid-cols-2"}`}>
-        {views.map((v) => (
-          <button
-            key={v}
-            onClick={() => setFocus(focus ? null : v)}
-            className="relative block rounded-2xl bg-[var(--panel)] border border-[var(--line)] overflow-hidden"
-            aria-label={focus ? "Show both views" : `Expand ${label(v)} view`}
-          >
-            <div className={focus ? "aspect-[4/3]" : "aspect-square"}>
-              <Figure ex={ex} view={v} phase={phase} showMuscles={muscles} showCues={cues} />
-            </div>
-            <span className="absolute top-2 left-2.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted)]">
-              {label(v)}
-            </span>
-          </button>
-        ))}
-      </div>
+      <button
+        onClick={() => setPlaying((p) => !p)}
+        className="relative block w-full rounded-2xl bg-[var(--panel)] border border-[var(--line)] overflow-hidden"
+        aria-label={playing ? "Pause" : "Play"}
+      >
+        <div className="aspect-square">
+          <GuideFigure art={art} pos={pos} alt={ex.name} />
+        </div>
+      </button>
 
       <div className="mt-3 rounded-2xl bg-[var(--panel)] border border-[var(--line)] p-3">
         <div className="flex items-center gap-3">
@@ -85,34 +81,23 @@ export default function ExerciseViewer({ ex }: { ex: Exercise }) {
             {speed}×
           </button>
         </div>
-
-        <div className="mt-2.5 flex gap-2">
-          <Toggle on={muscles} set={setMuscles} label="Muscles" dot="var(--m1)" />
-          <Toggle on={cues} set={setCues} label="Cues" dot="var(--cue)" />
-        </div>
       </div>
+
+      <GuideCredit />
     </div>
   );
 }
 
-function Toggle({
-  on, set, label, dot,
-}: { on: boolean; set: (v: boolean) => void; label: string; dot: string }) {
+/** CC BY-SA obliges us to name the creator and link the terms wherever the art runs. */
+export function GuideCredit() {
+  const c = GUIDE_CREDIT;
   return (
-    <button
-      onClick={() => set(!on)}
-      className={`flex-1 h-9 rounded-xl border text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors ${
-        on
-          ? "bg-[var(--panel-2)] border-[var(--line)] text-[var(--text)]"
-          : "bg-transparent border-[var(--line)] text-[var(--muted)]"
-      }`}
-      aria-pressed={on}
-    >
-      <span
-        className="w-2 h-2 rounded-full"
-        style={{ background: on ? dot : "transparent", boxShadow: on ? "none" : "inset 0 0 0 1.5px var(--muted)" }}
-      />
-      {label}
-    </button>
+    <p className="mt-2 text-[11px] leading-relaxed text-[var(--muted)]">
+      Illustration from{" "}
+      <a href={c.workUrl} className="underline underline-offset-2">{c.work}</a> by{" "}
+      <a href={c.creatorUrl} className="underline underline-offset-2">{c.creator}</a>, after{" "}
+      <a href={c.sourceUrl} className="underline underline-offset-2">{c.source}</a> —{" "}
+      <a href={c.licenseUrl} className="underline underline-offset-2">{c.license}</a>.
+    </p>
   );
 }
