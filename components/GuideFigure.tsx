@@ -1,4 +1,4 @@
-import { frameOffsets, type GuideArt } from "@/lib/guide";
+import type { GuideArt } from "@/lib/guide";
 
 /**
  * All three catalogue frames stacked, cross-faded by `pos`.
@@ -27,18 +27,17 @@ export default function GuideFigure({
 }: {
   art: GuideArt;
   pos: number;
-  /** Plot the anchors, and mark the ones used to register the frames. */
+  /** Hold a single frame flat, for the QA sheet. */
   debug?: boolean;
   alt: string;
 }) {
-  const offsets = frameOffsets(art);
   const w = weights(pos);
 
   return (
     <div className="relative w-full h-full" role="img" aria-label={alt}>
       {art.order.map((frame, i) => {
-        const [dx, dy] = offsets[i];
-        // Debug shows one frame flat, so the anchors can be read against it.
+        const [dx, dy] = art.offsets[i];
+        // The QA sheet holds one frame at a time rather than blending.
         const opacity = debug ? Number(i === Math.round(pos)) : w[i];
         if (opacity === 0) return null;
 
@@ -69,21 +68,6 @@ export default function GuideFigure({
           />
         );
       })}
-
-      {debug &&
-        Object.entries(art.anchors[Math.round(pos)]).map(([name, [x, y]]) => (
-          <div
-            key={name}
-            aria-hidden
-            className="absolute pointer-events-none"
-            style={{ left: `${x * 100}%`, top: `${y * 100}%`, transform: "translate(-50%, -50%)" }}
-          >
-            <div
-              className="w-1.5 h-1.5 rounded-full ring-1 ring-white/70"
-              style={{ background: art.stable.includes(name as never) ? "var(--accent)" : "var(--bad)" }}
-            />
-          </div>
-        ))}
     </div>
   );
 }

@@ -40,7 +40,6 @@ export default function GuideViewer({ ex, art }: { ex: Exercise; art: GuideArt }
 
   // Triangle wave: 0 -> 2 -> 0 across one cycle.
   const pos = phase < 0.5 ? phase * 4 : (1 - phase) * 4;
-  const steps = art.steps ?? ["Start", "Middle", "End"];
 
   return (
     <div>
@@ -52,9 +51,6 @@ export default function GuideViewer({ ex, art }: { ex: Exercise; art: GuideArt }
         <div className="aspect-square">
           <GuideFigure art={art} pos={pos} alt={ex.name} />
         </div>
-        <span className="absolute top-2 left-2.5 text-[11px] font-semibold uppercase tracking-wider text-[var(--muted)]">
-          {steps[Math.round(pos)]}
-        </span>
       </button>
 
       <div className="mt-3 rounded-2xl bg-[var(--panel)] border border-[var(--line)] p-3">

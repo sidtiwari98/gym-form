@@ -54,35 +54,36 @@ For limbs pointing at the viewer, use the `upperArmS` / `forearmS` / `thighS`
 scale shorthands to foreshorten them — a 2D rig can't rotate a limb out of the
 picture plane, so shortening it is how depth gets faked.
 
-## Catalogue artwork (pilot)
+## Catalogue artwork
 
-An alternative to the drawn rig, using the illustrations from
-[workout-guide](https://github.com/bryllim/workout-guide): 302 exercises, three
-frames each, in a much more detailed line style than the rig produces.
+The exercise pages use the illustrations from
+[workout-guide](https://github.com/bryllim/workout-guide) — all 36 exercises in
+the routine are covered. The drawn rig in `lib/rig.ts` still builds and still
+renders `/dev`, and `app/exercise/[slug]/page.tsx` falls back to it for any
+exercise the catalogue doesn't cover, but nothing currently takes that path.
+`/pilot` keeps the two side by side for comparison.
 
-Open `/pilot` to compare the two for the three exercises wired up so far, and
-`/pilot/anchors` to see the anchor points behind the animation.
-
-Three things shape how it's integrated:
+Three things shape how it works:
 
 - **The frames need registering before they can be animated.** They are
   separately drawn illustrations rather than frames of one scene, so the whole
-  drawing sits at a different place and size in each one — the bench slides
-  around, the plates change diameter. Each frame carries a few eyeballed joint
-  positions, and `stable` names the joints that shouldn't move in the real
-  world (planted feet, hips on a bench). Lining those up cancels most of the
-  drift. It is a partial fix: the drawings genuinely differ, and no transform
-  reconciles that, so a short cross-fade covers the rest.
-- **Registration is translation-only.** Solving for scale as well blows up when
-  the stable points sit close together — a narrow stance put the lateral raise
-  out by 70% scale and 300px. Two stable points far apart, translation only.
-- **Frame order isn't consistent.** A squat runs standing → deep across frames
-  1-3, but a lateral raise has the arms *down* in frame 3. `GuideArt.order`
-  states the rep order per exercise instead of assuming it.
-
-The rep ping-pongs bottom → top → bottom rather than looping 1-2-3-1, which
-avoids a cut with no movement to explain it and is what a rep looks like
-anyway.
+  drawing sits at a slightly different place in each — the bench slides around,
+  the plates change diameter. `offsets` in `lib/guide.ts` corrects that. It is
+  a partial fix: the drawings genuinely differ, and no transform reconciles
+  that, so a short cross-fade covers the rest.
+- **Registration is derived, not authored.** `scripts/register-guide-frames.py`
+  searches for the translation that best lines each frame's *static* structure
+  up with the middle one. Scoring the whole drawing does not work — the body is
+  most of the ink, so the best overlap is the one that cancels the movement,
+  pulling the bottom of a squat back up to meet the top. It scores over the
+  floor of the frame first, then over the ink that survived in all three, which
+  is the equipment. Two exercises where it locks onto the wrong structure are
+  rejected by name in the script, and corrections are capped.
+- **The rep ping-pongs**, so which end of `order` comes first doesn't matter —
+  the cycle reads the same in either direction. Having the *middle* frame right
+  does. It's derived (the two least-alike frames are the extremes), which is
+  wrong for four exercises that change camera angle between frames; those are
+  overridden by name.
 
 ### Assets are SVG, and come from the repo not npm
 
@@ -93,13 +94,19 @@ transparency, they work as a CSS `mask-image` over a box painted `--fig`. That
 gives the catalogue figures the same ink as the rig in both themes, instead of
 an `<img>` that has to be `filter: invert(1)`-ed for the light one.
 
-### Adding an exercise
+### Adding or regenerating an exercise
 
-Copy the three SVGs into `public/guide/<their-slug>/` from a checkout of
-`bryllim/workout-guide` (`packages/workout-guide/assets/<slug>/`), add an entry
-to `GUIDE_ART` keyed by *our* slug, then check it on `/pilot/anchors`. Only the
-amber `stable` anchors have to be accurate — they are what the registration
-uses. The rest are reference.
+Add the pair to `scripts/guide-mapping.json`, copy the three SVGs into
+`public/guide/<their-slug>/` from a checkout of `bryllim/workout-guide`
+(`packages/workout-guide/assets/<slug>/`), then regenerate the table:
+
+```
+python3 scripts/register-guide-frames.py /path/to/workout-guide
+```
+
+Paste its output into `GUIDE_ART` and check the result on `/pilot/frames`,
+which holds each frame in movement order — the equipment should sit still
+across a row.
 
 ### Licence
 

@@ -10,7 +10,8 @@ import { GUIDE_ART } from "@/lib/guide";
  * app; open /pilot directly, ideally on a phone.
  */
 export default function PilotPage() {
-  const slugs = Object.keys(GUIDE_ART);
+  // The three the rig draws best, not all 36 — this is a comparison, not a list.
+  const slugs = ["barbell-bench-press", "barbell-back-squat", "db-lateral-raise"];
 
   return (
     <main className="pt-6">
@@ -19,9 +20,9 @@ export default function PilotPage() {
       <header className="mt-3 mb-5">
         <h1 className="text-[24px] font-bold tracking-tight">Artwork pilot</h1>
         <p className="text-[14px] text-[var(--muted)] mt-1.5 leading-relaxed">
-          Same three exercises, drawn rig against catalogue art. The rig animates
-          and computes its highlights from joint angles; the catalogue art is
-          three stills with highlights placed from a handful of anchor points.
+          The drawn rig against the catalogue art now shipping on the exercise
+          pages. Kept so the two can still be compared after the switch; the rig
+          is otherwise only reachable for exercises the catalogue doesn&apos;t cover.
         </p>
       </header>
 
