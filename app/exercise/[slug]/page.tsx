@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import ExerciseViewer from "@/components/ExerciseViewer";
 import GuideViewer from "@/components/GuideViewer";
 import ExerciseNav from "@/components/ExerciseNav";
 import { EXERCISES, getExercise } from "@/lib/exercises";
@@ -48,8 +47,7 @@ export default async function ExercisePage({
         </div>
       </header>
 
-      {/* Catalogue art where it exists, the drawn rig for anything it doesn't cover. */}
-      {art ? <GuideViewer ex={ex} art={art} /> : <ExerciseViewer ex={ex} />}
+      {art && <GuideViewer ex={ex} art={art} />}
 
       <section className="mt-4 rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-3.5">
         <div className="text-[12px] font-bold uppercase tracking-wider text-[var(--muted)] mb-2">

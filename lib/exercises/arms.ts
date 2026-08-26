@@ -1,48 +1,11 @@
-import { pose, sym } from "../rig";
 import type { Exercise } from "../types";
-import type { Exercise as Ex } from "../types";
 
-/* Every standing curl shares a skeleton: arms down, elbows pinned, forearms
- * sweep up. Only the implement and the grip really change, so the poses are
- * built once and the differences are expressed in props and coaching. */
-const curlFrames = {
-  side: [
-    pose({}, { shoulderL: 4, elbowL: 4, shoulderR: 4, elbowR: 4 }),
-    pose({}, { shoulderL: 10, elbowL: 150, shoulderR: 10, elbowR: 150 }),
-  ],
-  front: [
-    pose({}, sym("front", { shoulder: 8, elbow: 6 })),
-    pose({}, sym("front", { shoulder: 12, elbow: 158 })),
-  ],
-};
-
-const curlOverlays: Ex["overlays"] = {
-  side: [
-    { kind: "trace", of: "hands" },
-    { kind: "mark", at: "elbowL", label: "elbow pinned", dy: -8 },
-  ],
-  front: [{ kind: "mark", at: "elbowL", label: "elbows at your sides", dy: -8 }],
-};
-
+/* Every standing curl goes wrong the same three ways. */
 const curlMistakes = [
   "Swinging the torso back to launch the weight up.",
   "Elbows drifting forward at the top, which hands the work to the front delt.",
   "Cutting the bottom short and never letting the arm straighten under load.",
 ];
-
-const skullFront = { torso: 180, rootX: 50, rootY: 58, ...sym("front", { hip: 20, knee: 8, thighS: 0.4 }) };
-
-/* Standing pushdown skeleton: upper arm fixed at the side, forearm extends. */
-const pushdownFrames = {
-  side: [
-    pose({ torso: 176 }, { shoulderL: -6, elbowL: 100, shoulderR: -6, elbowR: 100 }),
-    pose({ torso: 176 }, { shoulderL: -6, elbowL: 4, shoulderR: -6, elbowR: 4 }),
-  ],
-  front: [
-    pose({}, sym("front", { shoulder: 8, elbow: -40 })),
-    pose({}, sym("front", { shoulder: 8, elbow: 6 })),
-  ],
-};
 
 export const arms: Exercise[] = [
   {
@@ -53,12 +16,6 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [{ kind: "bar", at: "hands", style: "ez", inFront: true }],
-      front: [{ kind: "bar", at: "hands", style: "ez", width: 28, inFront: true }],
-    },
-    overlays: curlOverlays,
     cues: [
       "The angled grip puts the wrists in a slightly rotated position — easier on the wrist and elbow than a straight bar.",
       "Upper arms stay vertical and locked at your sides; only the forearm moves.",
@@ -76,12 +33,6 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [{ kind: "bar", at: "hands", style: "barbell", plate: 5.6, inFront: true }],
-      front: [{ kind: "bar", at: "hands", style: "barbell", width: 30, plate: 5.6, inFront: true }],
-    },
-    overlays: curlOverlays,
     cues: [
       "Hands about shoulder width, wrists straight and stacked over the forearm.",
       "Elbows pinned to your ribs for the whole set.",
@@ -102,12 +53,6 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [{ kind: "dumbbells", grip: "pronated", size: 5 }],
-      front: [{ kind: "dumbbells", grip: "pronated" }],
-    },
-    overlays: curlOverlays,
     cues: [
       "Start with the palms facing forward, or rotate them out as you curl for a bit more peak contraction.",
       "Elbows stay at your sides; don't let them travel forward as you curl.",
@@ -124,15 +69,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, neutral grip",
     primary: ["biceps", "forearms"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [{ kind: "dumbbells", grip: "neutral", size: 5 }],
-      front: [{ kind: "dumbbells", grip: "neutral" }],
-    },
-    overlays: {
-      side: curlOverlays.side,
-      front: [{ kind: "mark", at: "wristL", label: "thumbs up throughout", dy: -8 }],
-    },
     cues: [
       "Palms face each other the whole way — the dumbbell stays vertical, like swinging a hammer.",
       "This hits the brachialis and the forearm more than a supinated curl, which is why it's in here alongside the others.",
@@ -155,19 +91,6 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [
-        { kind: "post", x: 86, y1: 40, y2: 93 },
-        { kind: "cable", from: [86, 88], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 16, inFront: true },
-      ],
-      front: [
-        { kind: "cable", from: [50, 92], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 22, inFront: true },
-      ],
-    },
-    overlays: curlOverlays,
     cues: [
       "The cable keeps tension on the biceps at every point in the range, including the top — that's the advantage over free weights here.",
       "Stand far enough from the stack that the cable pulls slightly forward at the bottom.",
@@ -185,22 +108,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, pronated",
     primary: ["forearms", "biceps"],
     tempo: 2.8,
-    frames: curlFrames,
-    props: {
-      side: [
-        { kind: "post", x: 86, y1: 40, y2: 93 },
-        { kind: "cable", from: [86, 88], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 16, inFront: true },
-      ],
-      front: [
-        { kind: "cable", from: [50, 92], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 22, inFront: true },
-      ],
-    },
-    overlays: {
-      side: curlOverlays.side,
-      front: [{ kind: "mark", at: "wristL", label: "knuckles up, wrist flat", dy: -8 }],
-    },
     cues: [
       "Overhand grip, knuckles facing up, wrist held straight and neutral rather than bent back.",
       "This targets the brachioradialis and forearm extensors — expect to use noticeably less weight than a normal curl.",
@@ -222,39 +129,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 3,
-    viewLabels: { front: "From above" },
-    frames: {
-      side: [
-        pose({ torso: 92, hipL: -75, hipR: -75, kneeL: -8, kneeR: -8, ankleL: 90, ankleR: 90, rootX: 40, rootY: 68 },
-          { shoulderL: 186, elbowL: 184, shoulderR: 186, elbowR: 184 }),
-        pose({ torso: 92, hipL: -75, hipR: -75, kneeL: -8, kneeR: -8, ankleL: 90, ankleR: 90, rootX: 40, rootY: 68 },
-          { shoulderL: 186, elbowL: 110, shoulderR: 186, elbowR: 110 }),
-      ],
-      front: [
-        pose(skullFront, sym("front", { shoulder: 12, elbow: 176 })),
-        pose(skullFront, sym("front", { shoulder: 12, elbow: 130, forearmS: 0.85 })),
-      ],
-    },
-    groundLock: { side: false, front: false },
-    props: {
-      side: [
-        { kind: "pad", x: 46, y: 75, angle: 0, len: 48, thick: 5 },
-        { kind: "post", x: 28, y1: 77, y2: 93 },
-        { kind: "post", x: 64, y1: 77, y2: 93 },
-        { kind: "bar", at: "hands", style: "ez", inFront: true },
-      ],
-      front: [
-        { kind: "pad", x: 50, y: 66, angle: 90, len: 46, thick: 15 },
-        { kind: "bar", at: "hands", style: "ez", width: 26, inFront: true },
-      ],
-    },
-    overlays: {
-      side: [
-        { kind: "trace", of: "hands" },
-        { kind: "mark", at: "elbowL", label: "elbows stay put", dy: -8 },
-      ],
-      front: [{ kind: "mark", at: "elbowL", label: "elbows in, not flared", dy: -8 }],
-    },
     cues: [
       "Angle the upper arms slightly back toward your head rather than straight vertical — it keeps tension on the triceps at lockout.",
       "Only the forearm moves. The elbows stay in one place for the entire set.",
@@ -275,25 +149,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
-    frames: pushdownFrames,
-    props: {
-      side: [
-        { kind: "post", x: 84, y1: 14, y2: 93 },
-        { kind: "cable", from: [84, 16], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 16, inFront: true },
-      ],
-      front: [
-        { kind: "cable", from: [50, 12], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 22, inFront: true },
-      ],
-    },
-    overlays: {
-      side: [
-        { kind: "trace", of: "hands" },
-        { kind: "mark", at: "elbowL", label: "elbow fixed", dy: -8 },
-      ],
-      front: [{ kind: "mark", at: "elbowL", label: "elbows pinned to ribs", dy: -8 }],
-    },
     cues: [
       "Stand close to the stack, slight forward lean, elbows glued to your ribs.",
       "Push down until the arms are straight and hold the lockout for a beat.",
@@ -314,31 +169,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
-    frames: {
-      side: pushdownFrames.side,
-      front: [
-        pose({}, sym("front", { shoulder: 8, elbow: -40 })),
-        pose({}, sym("front", { shoulder: 12, elbow: 26 })),
-      ],
-    },
-    props: {
-      side: [
-        { kind: "post", x: 84, y1: 14, y2: 93 },
-        { kind: "cable", from: [84, 16], to: "hands" },
-        { kind: "bar", at: "hands", style: "rope", inFront: true },
-      ],
-      front: [
-        { kind: "cable", from: [50, 12], to: "hands" },
-        { kind: "bar", at: "hands", style: "rope", inFront: true },
-      ],
-    },
-    overlays: {
-      side: [
-        { kind: "trace", of: "hands" },
-        { kind: "mark", at: "elbowL", label: "elbow fixed", dy: -8 },
-      ],
-      front: [{ kind: "arrow", from: "elbowL", to: "wristL", label: "split at the bottom", tone: "good" }],
-    },
     cues: [
       "Same setup as the bar version, but at the bottom pull the rope apart and turn the knuckles slightly outward.",
       "That split at lockout gets you a harder contraction on the lateral head than a fixed bar allows.",
@@ -359,25 +189,6 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension, supinated",
     primary: ["triceps"],
     tempo: 2.8,
-    frames: pushdownFrames,
-    props: {
-      side: [
-        { kind: "post", x: 84, y1: 14, y2: 93 },
-        { kind: "cable", from: [84, 16], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 14, inFront: true },
-      ],
-      front: [
-        { kind: "cable", from: [50, 12], to: "hands" },
-        { kind: "bar", at: "hands", style: "handle", width: 18, inFront: true },
-      ],
-    },
-    overlays: {
-      side: [
-        { kind: "trace", of: "hands" },
-        { kind: "mark", at: "elbowL", label: "elbow fixed", dy: -8 },
-      ],
-      front: [{ kind: "mark", at: "wristL", label: "palms up", dy: -8 }],
-    },
     cues: [
       "Underhand grip, palms facing up. Expect to drop the weight a fair bit versus the overhand version.",
       "This biases the long head of the triceps, which is why it earns a slot of its own.",

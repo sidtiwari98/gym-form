@@ -1,14 +1,19 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { DAYS, DAY_LABELS, WEEK, getDay } from "@/lib/routine";
 
 export default function WeekList() {
-  // Resolved after mount: the server has no idea what day it is where you are,
-  // and guessing would flash the wrong session on load.
-  const [todayIdx, setTodayIdx] = useState<number | null>(null);
-  useEffect(() => setTodayIdx(new Date().getDay()), []);
+  // Resolved on the client: the server has no idea what day it is where you
+  // are, and guessing would flash the wrong session on load. The server
+  // snapshot is null so the markup matches until hydration fills it in; the
+  // date never changes mid-session, so there is nothing to subscribe to.
+  const todayIdx = useSyncExternalStore(
+    () => () => {},
+    () => new Date().getDay(),
+    () => null,
+  );
 
   const today = todayIdx === null ? null : DAYS.find((d) => d.index === todayIdx);
 
