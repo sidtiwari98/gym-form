@@ -92,3 +92,14 @@ input[type="range"] {
     transition-duration: 0.01ms !important;
   }
 }
+
+/*
+ * Catalogue artwork ships as white line work on transparency, which is right
+ * for the dark theme and invisible on the light one. Inverting the PNG turns
+ * the strokes black and leaves the transparency alone.
+ */
+@media (prefers-color-scheme: light) {
+  .guide-art {
+    filter: invert(1);
+  }
+}
