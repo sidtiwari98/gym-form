@@ -1,82 +1,80 @@
 import Image from "next/image";
-import { blobsFor, type Anchors } from "@/lib/guide";
-import type { Muscle } from "@/lib/types";
+import { frameOffsets, type GuideArt } from "@/lib/guide";
 
 /**
- * One frame of catalogue artwork with muscle highlights under it.
+ * All three catalogue frames stacked, cross-faded by `pos`.
  *
- * The art is white line work on transparency with a hollow interior — only
- * about an eighth of the canvas is ink — so a blurred blob painted *behind*
- * the image glows through the body and reads as a highlighted muscle. Painting
- * over the top would bury the linework instead.
+ * `pos` runs 0..2 across the rep. Within each step the outgoing and incoming
+ * frame always sum to full opacity, so there is never a moment with nothing on
+ * screen; `BLEND` sets how much of the step is spent handing over, and the
+ * rest holds a single drawing. A plain linear cross-fade would instead leave
+ * two ghosted figures up for most of the rep.
  */
+const BLEND = 0.4;
+
+/** Opacity of each of the three frames at `pos`. */
+function weights(pos: number): [number, number, number] {
+  const k = Math.min(1, Math.floor(pos));
+  const t = pos - k;
+  const e = Math.min(1, Math.max(0, (t - (0.5 - BLEND / 2)) / BLEND));
+  const w: [number, number, number] = [0, 0, 0];
+  w[k] = 1 - e;
+  w[k + 1] = e;
+  return w;
+}
+
 export default function GuideFigure({
-  source, frame, anchors, primary, secondary, showMuscles = true, debug = false, alt,
+  art, pos, debug = false, alt,
 }: {
-  source: string;
-  frame: number;
-  anchors: Anchors;
-  primary: Muscle[];
-  secondary?: Muscle[];
-  showMuscles?: boolean;
-  /** Plot the raw anchor points over the art — how new exercises get authored. */
+  art: GuideArt;
+  pos: number;
+  /** Plot the anchors, and mark the ones used to register the frames. */
   debug?: boolean;
   alt: string;
 }) {
-  const layers = showMuscles
-    ? [
-        // Kept low: the highlight is a "this is the muscle" cue sitting under
-        // linework, and anything stronger reads as the figure being on fire.
-        ...(secondary ?? []).flatMap((m) => blobsFor(anchors, m).map((b) => ({ b, tone: "var(--m2)", o: 0.34 }))),
-        ...primary.flatMap((m) => blobsFor(anchors, m).map((b) => ({ b, tone: "var(--m1)", o: 0.44 }))),
-      ]
-    : [];
+  const offsets = frameOffsets(art);
+  const w = weights(pos);
 
   return (
-    // `container-type: size` lets the blur scale with the rendered box, so the
-    // highlights look the same on a phone and on the contact sheet.
-    <div className="relative w-full h-full" style={{ containerType: "size" }}>
-      {layers.map(({ b, tone, o }, i) => (
-        <div
-          key={i}
-          aria-hidden
-          className="absolute rounded-full pointer-events-none"
-          style={{
-            left: `${b.x * 100}%`,
-            top: `${b.y * 100}%`,
-            width: `${b.w * 100}%`,
-            height: `${b.h * 100}%`,
-            background: tone,
-            opacity: o,
-            // Blur relative to the blob, not the box: a fixed radius leaves a
-            // torso patch hard-edged and washes a delt away entirely.
-            filter: `blur(${Math.max(1, Math.min(b.w, b.h) * 30)}cqmin)`,
-            transform: `translate(-50%, -50%) rotate(${b.angle}deg)`,
-          }}
-        />
-      ))}
-      <Image
-        src={`/guide/${source}/frame-${frame}.png`}
-        alt={alt}
-        width={512}
-        height={512}
-        className="guide-art relative w-full h-full object-contain"
-      />
+    <div className="relative w-full h-full">
+      {art.order.map((frame, i) => {
+        const [dx, dy] = offsets[i];
+        // Debug shows one frame flat, so the anchors can be read against it.
+        const opacity = debug ? Number(i === Math.round(pos)) : w[i];
+        if (opacity === 0) return null;
+
+        return (
+          <Image
+            key={frame}
+            src={`/guide/${art.source}/frame-${frame}.png`}
+            alt={i === Math.round(pos) ? alt : ""}
+            aria-hidden={i !== Math.round(pos)}
+            width={512}
+            height={512}
+            className="guide-art absolute inset-0 w-full h-full object-contain"
+            style={{ opacity, transform: `translate(${dx * 100}%, ${dy * 100}%)` }}
+          />
+        );
+      })}
 
       {debug &&
-        Object.entries(anchors).map(([name, [x, y]]) => (
-          <div
-            key={name}
-            aria-hidden
-            className="absolute pointer-events-none"
-            style={{ left: `${x * 100}%`, top: `${y * 100}%`, transform: "translate(-50%, -50%)" }}
-          >
-            <div className="w-1.5 h-1.5 rounded-full bg-[var(--bad)] ring-1 ring-white/70" />
-            <span className="absolute left-2 top-0 text-[7px] leading-none text-[var(--bad)] whitespace-nowrap">
-              {name}
-            </span>
-          </div>
-        ))}
+        [art.anchors[Math.round(pos)]].map((anchors, i) =>
+          Object.entries(anchors).map(([name, [x, y]]) => (
+            <div
+              key={`${i}-${name}`}
+              aria-hidden
+              className="absolute pointer-events-none"
+              style={{ left: `${x * 100}%`, top: `${y * 100}%`, transform: "translate(-50%, -50%)" }}
+            >
+              <div
+                className="w-1.5 h-1.5 rounded-full ring-1 ring-white/70"
+                style={{
+                  background: art.stable.includes(name as never) ? "var(--accent)" : "var(--bad)",
+                }}
+              />
+            </div>
+          )),
+        )}
     </div>
   );
 }

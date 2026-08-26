@@ -61,30 +61,35 @@ An alternative to the drawn rig, using the illustrations from
 frames each, in a much more detailed line style than the rig produces.
 
 Open `/pilot` to compare the two for the three exercises wired up so far, and
-`/pilot/anchors` to see the anchor points each highlight is derived from.
+`/pilot/anchors` to see the anchor points behind the animation.
 
 Three things shape how it's integrated:
 
-- **It's a stepper, not a loop.** The three frames are separately drawn
-  illustrations rather than frames of one scene — the bench and the barbell
-  plates move and change size between them — so playing them in sequence
-  judders, and no amount of alignment fixes it. Tapping between held positions
-  hides the mismatch completely.
+- **The frames need registering before they can be animated.** They are
+  separately drawn illustrations rather than frames of one scene, so the whole
+  drawing sits at a different place and size in each one — the bench slides
+  around, the plates change diameter. Each frame carries a few eyeballed joint
+  positions, and `stable` names the joints that shouldn't move in the real
+  world (planted feet, hips on a bench). Lining those up cancels most of the
+  drift. It is a partial fix: the drawings genuinely differ, and no transform
+  reconciles that, so a short cross-fade covers the rest.
+- **Registration is translation-only.** Solving for scale as well blows up when
+  the stable points sit close together — a narrow stance put the lateral raise
+  out by 70% scale and 300px. Two stable points far apart, translation only.
 - **Frame order isn't consistent.** A squat runs standing → deep across frames
   1-3, but a lateral raise has the arms *down* in frame 3. `GuideArt.order`
   states the rep order per exercise instead of assuming it.
-- **Highlights are placed, not computed.** The rig derives muscle highlights
-  from joint positions; a PNG has no joints. Each frame carries a handful of
-  anchor points (`lib/guide.ts`) and `MUSCLE_SPOTS` derives every highlight
-  from them, so a new exercise costs a dozen eyeballed coordinates rather than
-  thirty hand-tuned ellipses. They land approximately, which is all a "which
-  muscle is this" cue needs to be.
+
+The rep ping-pongs bottom → top → bottom rather than looping 1-2-3-1, which
+avoids a cut with no movement to explain it and is what a rep looks like
+anyway.
 
 ### Adding an exercise
 
 Copy the three frames into `public/guide/<their-slug>/`, add an entry to
-`GUIDE_ART` keyed by *our* slug, then check the placement on `/pilot/anchors`
-and nudge the numbers.
+`GUIDE_ART` keyed by *our* slug, then check it on `/pilot/anchors`. Only the
+amber `stable` anchors have to be accurate — they are what the registration
+uses. The rest are reference.
 
 ### Licence
 

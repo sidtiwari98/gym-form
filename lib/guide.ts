@@ -1,20 +1,22 @@
-import type { Muscle } from "./types";
-
 /**
- * Photographic-style art from the `workout-guide` catalogue.
+ * Line art from the `workout-guide` catalogue, animated.
  *
- * The rig in `lib/rig.ts` computes muscle highlights from joint positions, so
- * they track the animation for free. This artwork is flat PNG — there are no
- * joints to read — so the highlights have to be told where to go.
+ * The three frames per exercise are separately drawn illustrations rather than
+ * frames of one scene, so the whole drawing sits at a different place and size
+ * in each — the bench slides around, the plates change diameter. Played
+ * straight, the loop judders.
  *
- * Rather than hand-place an ellipse per muscle per frame, each frame carries a
- * handful of anchor points and `MUSCLE_SPOTS` derives every highlight from
- * them. Authoring a new exercise is then a dozen eyeballed coordinates, not
- * thirty tuned ellipses. The highlights land approximately, which is all a
- * "which muscle is this working" cue needs to be.
+ * The fix is registration. Each frame carries a handful of eyeballed joint
+ * positions, and `stable` names the joints that shouldn't move in the real
+ * world — the planted feet of a squat, the hips on a bench. Lining those up
+ * cancels the whole-drawing drift and leaves only the difference in linework,
+ * which is small enough to cross-fade through.
+ *
+ * It's a partial fix, not a perfect one: the drawings genuinely differ, and no
+ * transform reconciles that.
  */
 
-/** Joints we place by hand. Only the ones an exercise's muscles need. */
+/** Joints we place by hand. Only the ones an exercise needs to register. */
 export type GuideAnchor =
   | "head" | "chest" | "hip"
   | "shoulderL" | "shoulderR"
@@ -26,92 +28,6 @@ export type GuideAnchor =
 /** Fractions of the image box, so they survive any render size. */
 export type Pt = [x: number, y: number];
 export type Anchors = Partial<Record<GuideAnchor, Pt>>;
-
-/**
- * Where a muscle sits relative to the anchors. `at` pins a blob to one joint;
- * `mid` stretches it along the segment between two, which is what makes a
- * quad read as a thigh rather than a dot on a knee.
- */
-type Spot =
-  | { at: GuideAnchor; size?: number }
-  | { mid: [GuideAnchor, GuideAnchor]; size?: number };
-
-/**
- * `size` multiplies the torso unit (chest -> hip) for `at` spots, and the
- * segment's own thickness for `mid` spots. Back muscles resolve to the same
- * anchors as their front counterparts: a single camera angle can't show both
- * faces, so a lat highlight on a front-facing figure is a label for where the
- * work is happening, not an anatomical claim.
- */
-const MUSCLE_SPOTS: Record<Muscle, Spot[]> = {
-  chest: [{ at: "chest", size: 0.62 }],
-  upperChest: [{ at: "chest", size: 0.5 }],
-  lats: [{ mid: ["chest", "hip"], size: 1.15 }],
-  upperBack: [{ at: "chest", size: 0.58 }],
-  traps: [{ mid: ["shoulderL", "shoulderR"], size: 0.7 }],
-  lowerBack: [{ at: "hip", size: 0.5 }],
-  core: [{ mid: ["chest", "hip"], size: 0.85 }],
-
-  frontDelts: [{ at: "shoulderL", size: 0.3 }, { at: "shoulderR", size: 0.3 }],
-  sideDelts: [{ at: "shoulderL", size: 0.32 }, { at: "shoulderR", size: 0.32 }],
-  rearDelts: [{ at: "shoulderL", size: 0.3 }, { at: "shoulderR", size: 0.3 }],
-
-  biceps: [{ mid: ["shoulderL", "elbowL"] }, { mid: ["shoulderR", "elbowR"] }],
-  triceps: [{ mid: ["shoulderL", "elbowL"] }, { mid: ["shoulderR", "elbowR"] }],
-  forearms: [{ mid: ["elbowL", "handL"] }, { mid: ["elbowR", "handR"] }],
-
-  quads: [{ mid: ["hip", "kneeL"] }, { mid: ["hip", "kneeR"] }],
-  hamstrings: [{ mid: ["hip", "kneeL"] }, { mid: ["hip", "kneeR"] }],
-  glutes: [{ at: "hip", size: 0.55 }],
-  calves: [{ mid: ["kneeL", "ankleL"] }, { mid: ["kneeR", "ankleR"] }],
-  abductors: [{ at: "hip", size: 0.5 }],
-  adductors: [{ at: "hip", size: 0.45 }],
-};
-
-/** A resolved highlight, in fractions of the image box. */
-export type Blob = { x: number; y: number; w: number; h: number; angle: number };
-
-const dist = (a: Pt, b: Pt) => Math.hypot(a[0] - b[0], a[1] - b[1]);
-
-/**
- * Resolve a muscle to blobs, skipping any spot whose anchors this frame
- * doesn't define — that's how an exercise gets away with placing only the
- * joints its own muscles care about.
- */
-export function blobsFor(anchors: Anchors, muscle: Muscle): Blob[] {
-  const chest = anchors.chest;
-  const hip = anchors.hip;
-  // Every size is relative to the torso, so a figure drawn small in frame gets
-  // proportionally smaller highlights without a per-frame scale factor.
-  const torso = chest && hip ? dist(chest, hip) : 0.2;
-
-  const out: Blob[] = [];
-  for (const spot of MUSCLE_SPOTS[muscle]) {
-    if ("at" in spot) {
-      const p = anchors[spot.at];
-      if (!p) continue;
-      const r = torso * (spot.size ?? 0.5);
-      out.push({ x: p[0], y: p[1], w: r, h: r, angle: 0 });
-    } else {
-      const a = anchors[spot.mid[0]];
-      const b = anchors[spot.mid[1]];
-      if (!a || !b) continue;
-      const len = dist(a, b);
-      out.push({
-        x: (a[0] + b[0]) / 2,
-        y: (a[1] + b[1]) / 2,
-        // A limb pointing towards the camera is drawn short — the thigh at the
-        // bottom of a squat is barely taller than the hip. Letting the blob
-        // shrink with it turns the highlight into a smudge at the joint, so it
-        // keeps a floor tied to the torso and stays a readable patch.
-        w: Math.max(len * 0.8, torso * 0.55),
-        h: torso * 0.3 * (spot.size ?? 1),
-        angle: (Math.atan2(b[1] - a[1], b[0] - a[0]) * 180) / Math.PI,
-      });
-    }
-  }
-  return out;
-}
 
 export type GuideArt = {
   /** Slug in the workout-guide catalogue; also the folder under /public/guide. */
@@ -126,9 +42,40 @@ export type GuideArt = {
   order: [number, number, number];
   /** Anchors per entry in `order`, not per file number. */
   anchors: [Anchors, Anchors, Anchors];
+  /**
+   * Joints that hold still through the rep, used to register the frames.
+   *
+   * Pick things the lifter plants, never something the movement moves: aligning
+   * on the hips of a squat would cancel the squat. Two points beat one, but
+   * keep them far apart — the ankles of a narrow stance sit so close together
+   * that they can't even be trusted for scale, which is why registration is
+   * translation-only.
+   */
+  stable: GuideAnchor[];
   /** Captions for the three positions. */
   steps?: [string, string, string];
 };
+
+/**
+ * Per-frame translation, in fractions of the image box, that brings each frame
+ * into register with the middle one. Frames missing a stable anchor just don't
+ * move.
+ */
+export function frameOffsets(art: GuideArt): Pt[] {
+  const REF = 1;
+  return art.anchors.map((a, i) => {
+    if (i === REF) return [0, 0];
+    const shared = art.stable.filter((k) => a[k] && art.anchors[REF][k]);
+    if (!shared.length) return [0, 0];
+    let sx = 0;
+    let sy = 0;
+    for (const k of shared) {
+      sx += art.anchors[REF][k]![0] - a[k]![0];
+      sy += art.anchors[REF][k]![1] - a[k]![1];
+    }
+    return [sx / shared.length, sy / shared.length];
+  });
+}
 
 /**
  * Pilot set. Keyed by our slug, pointing at their art.
@@ -137,6 +84,8 @@ export const GUIDE_ART: Record<string, GuideArt> = {
   "barbell-bench-press": {
     source: "bench-press",
     order: [3, 2, 1],
+    // Butt stays on the bench, far foot stays planted.
+    stable: ["hip", "ankleR"],
     steps: ["Bar on chest", "Driving up", "Lockout"],
     anchors: [
       {
@@ -169,6 +118,7 @@ export const GUIDE_ART: Record<string, GuideArt> = {
   "barbell-back-squat": {
     source: "squat",
     order: [3, 2, 1],
+    stable: ["ankleL", "ankleR"],
     steps: ["Bottom", "Driving up", "Standing"],
     anchors: [
       {
@@ -195,6 +145,7 @@ export const GUIDE_ART: Record<string, GuideArt> = {
   "db-lateral-raise": {
     source: "lateral-raise",
     order: [3, 1, 2],
+    stable: ["ankleL", "ankleR"],
     steps: ["Arms down", "Rising", "Shoulder height"],
     anchors: [
       {
