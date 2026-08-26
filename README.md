@@ -84,10 +84,20 @@ The rep ping-pongs bottom → top → bottom rather than looping 1-2-3-1, which
 avoids a cut with no movement to explain it and is what a rep looks like
 anyway.
 
+### Assets are SVG, and come from the repo not npm
+
+`@bryllim/workout-guide` on npm ships PNG only, but the repository carries an
+SVG of every frame alongside it, and the project's own site serves those. Take
+the SVGs: they stay crisp at any size and, drawn as opaque white on
+transparency, they work as a CSS `mask-image` over a box painted `--fig`. That
+gives the catalogue figures the same ink as the rig in both themes, instead of
+an `<img>` that has to be `filter: invert(1)`-ed for the light one.
+
 ### Adding an exercise
 
-Copy the three frames into `public/guide/<their-slug>/`, add an entry to
-`GUIDE_ART` keyed by *our* slug, then check it on `/pilot/anchors`. Only the
+Copy the three SVGs into `public/guide/<their-slug>/` from a checkout of
+`bryllim/workout-guide` (`packages/workout-guide/assets/<slug>/`), add an entry
+to `GUIDE_ART` keyed by *our* slug, then check it on `/pilot/anchors`. Only the
 amber `stable` anchors have to be accurate — they are what the registration
 uses. The rest are reference.
 

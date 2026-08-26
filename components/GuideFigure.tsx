@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { frameOffsets, type GuideArt } from "@/lib/guide";
 
 /**
@@ -36,45 +35,55 @@ export default function GuideFigure({
   const w = weights(pos);
 
   return (
-    <div className="relative w-full h-full">
+    <div className="relative w-full h-full" role="img" aria-label={alt}>
       {art.order.map((frame, i) => {
         const [dx, dy] = offsets[i];
         // Debug shows one frame flat, so the anchors can be read against it.
         const opacity = debug ? Number(i === Math.round(pos)) : w[i];
         if (opacity === 0) return null;
 
+        const url = `/guide/${art.source}/frame-${frame}.svg`;
+
         return (
-          <Image
+          // The art is drawn as opaque white on transparency, so using it as a
+          // mask over a painted box takes its silhouette and drops its colour.
+          // That gets the figure the same ink as the rig in both themes,
+          // instead of an <img> that has to be inverted for the light one.
+          <div
             key={frame}
-            src={`/guide/${art.source}/frame-${frame}.png`}
-            alt={i === Math.round(pos) ? alt : ""}
-            aria-hidden={i !== Math.round(pos)}
-            width={512}
-            height={512}
-            className="guide-art absolute inset-0 w-full h-full object-contain"
-            style={{ opacity, transform: `translate(${dx * 100}%, ${dy * 100}%)` }}
+            aria-hidden
+            className="absolute inset-0"
+            style={{
+              opacity,
+              transform: `translate(${dx * 100}%, ${dy * 100}%)`,
+              backgroundColor: "var(--fig)",
+              maskImage: `url(${url})`,
+              WebkitMaskImage: `url(${url})`,
+              maskSize: "contain",
+              WebkitMaskSize: "contain",
+              maskRepeat: "no-repeat",
+              WebkitMaskRepeat: "no-repeat",
+              maskPosition: "center",
+              WebkitMaskPosition: "center",
+            }}
           />
         );
       })}
 
       {debug &&
-        [art.anchors[Math.round(pos)]].map((anchors, i) =>
-          Object.entries(anchors).map(([name, [x, y]]) => (
+        Object.entries(art.anchors[Math.round(pos)]).map(([name, [x, y]]) => (
+          <div
+            key={name}
+            aria-hidden
+            className="absolute pointer-events-none"
+            style={{ left: `${x * 100}%`, top: `${y * 100}%`, transform: "translate(-50%, -50%)" }}
+          >
             <div
-              key={`${i}-${name}`}
-              aria-hidden
-              className="absolute pointer-events-none"
-              style={{ left: `${x * 100}%`, top: `${y * 100}%`, transform: "translate(-50%, -50%)" }}
-            >
-              <div
-                className="w-1.5 h-1.5 rounded-full ring-1 ring-white/70"
-                style={{
-                  background: art.stable.includes(name as never) ? "var(--accent)" : "var(--bad)",
-                }}
-              />
-            </div>
-          )),
-        )}
+              className="w-1.5 h-1.5 rounded-full ring-1 ring-white/70"
+              style={{ background: art.stable.includes(name as never) ? "var(--accent)" : "var(--bad)" }}
+            />
+          </div>
+        ))}
     </div>
   );
 }
