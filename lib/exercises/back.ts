@@ -9,6 +9,14 @@ export const back: Exercise[] = [
     primary: ["lats", "upperBack"],
     secondary: ["biceps", "rearDelts", "lowerBack"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes down toward the floor a little ahead of you." },
+      { part: "Torso", text: "Hinged forward to about 45° or a bit lower — held there the whole set." },
+      { part: "Shoulder blades", text: "Pulled together as the bar arrives at your body." },
+      { part: "Elbows", text: "Drive back and past your ribs, leading the pull." },
+      { part: "Lower back", text: "Braced flat, no rounding." },
+      { part: "Knees", text: "Softly bent, not locked straight." },
+    ],
     cues: [
       "Hinge at the hips to roughly 45° or a bit lower, knees softly bent, and hold that torso angle for the whole set.",
       "Pull the bar to your lower ribs or belly button, not your chest.",
@@ -31,6 +39,14 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3.4,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Pulled down away from your ears before you start pulling with the arms." },
+      { part: "Chest", text: "Driving up toward the bar." },
+      { part: "Elbows", text: "Pull down and back, not forward." },
+      { part: "Core", text: "Braced so the body doesn't swing." },
+      { part: "Knees", text: "Resting on the assist pad, relaxed." },
+    ],
     cues: [
       "Start from a dead hang with the shoulders pulled down — the first move is the shoulder blades, before the arms.",
       "Pull your chest toward the bar rather than your chin over it; that keeps the lats working.",
@@ -52,6 +68,14 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward — not tilted back to watch the bar." },
+      { part: "Torso", text: "Leaned back about 15° and held there." },
+      { part: "Chest", text: "Lifted up toward the bar." },
+      { part: "Shoulders", text: "Down, not shrugged up toward your ears." },
+      { part: "Elbows", text: "Drive down toward your back pockets." },
+      { part: "Hips", text: "Planted on the seat, thighs locked under the pads." },
+    ],
     cues: [
       "Grip a little wider than shoulder width — much wider just shortens the range without adding lat work.",
       "Slight lean back, about 15°, and hold it. Chest up toward the bar.",
@@ -74,6 +98,14 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Leaned back slightly, held steady all set." },
+      { part: "Chest", text: "Lifted toward the bar." },
+      { part: "Elbows", text: "Tracking close to your ribs, pulling the bar to your sternum." },
+      { part: "Shoulders", text: "Stretched fully at the top of each rep, then pulled down and back." },
+      { part: "Hips", text: "Planted on the seat, legs locked under the pads." },
+    ],
     cues: [
       "Hands roughly shoulder-width on the short bar, elbows tracking close to the ribs.",
       "The close grip gives you more range — use it, and pull the bar right down to the sternum.",
@@ -95,6 +127,14 @@ export const back: Exercise[] = [
     primary: ["upperBack", "lats"],
     secondary: ["biceps", "rearDelts"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Chest", text: "Against the pad if there is one, upright and still." },
+      { part: "Shoulder blades", text: "Pulled together at the end of the pull, then let travel forward for the stretch." },
+      { part: "Elbows", text: "Close to the body for more mid-back, wider for more rear delt." },
+      { part: "Lower back", text: "Stays still — no leaning back to help the pull." },
+      { part: "Feet", text: "Braced against the footplate." },
+    ],
     cues: [
       "Chest against the pad if the machine has one, torso upright and still — the movement is arms and shoulder blades only.",
       "Pull the handles to your lower ribs and hold the squeeze for a beat.",
@@ -116,6 +156,13 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["core", "triceps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Hinged forward slightly, held steady — no rocking." },
+      { part: "Shoulders", text: "The only joint that moves; drive them down toward your hips." },
+      { part: "Elbows", text: "Nearly straight, with a fixed soft bend the whole rep." },
+      { part: "Core", text: "Braced to keep the torso still." },
+    ],
     cues: [
       "Hinge forward slightly, arms nearly straight with a fixed soft elbow bend.",
       "Sweep the bar down in a big arc to your thighs — the shoulder is the only joint that moves.",
@@ -138,6 +185,13 @@ export const back: Exercise[] = [
     primary: ["hamstrings", "glutes", "lowerBack"],
     secondary: ["core"],
     tempo: 3.2,
+    bodyPosition: [
+      { part: "Head", text: "In line with your spine, eyes toward the floor." },
+      { part: "Back", text: "One straight line from head to heels the whole rep." },
+      { part: "Hips", text: "The joint that folds — the pad sits just below your hip bones." },
+      { part: "Glutes", text: "Squeezed hard at the top." },
+      { part: "Knees", text: "Soft, not locked." },
+    ],
     cues: [
       "Set the pad just below the hip bones so you can hinge freely — too high and your lower back does all the work.",
       "The movement is a hip hinge: fold at the hips, keep the spine in one straight line from head to heels.",
@@ -159,6 +213,12 @@ export const back: Exercise[] = [
     primary: ["traps"],
     secondary: ["forearms"],
     tempo: 2.6,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, not craning forward as you shrug." },
+      { part: "Shoulders", text: "Rise straight up toward your ears, then drop all the way down between reps." },
+      { part: "Arms", text: "Straight, just acting as hooks — no pulling with the biceps." },
+      { part: "Torso", text: "Upright and still." },
+    ],
     cues: [
       "Shrug straight up toward your ears — the traps elevate, they don't rotate.",
       "Pause for a second at the top; that squeeze is the whole exercise.",

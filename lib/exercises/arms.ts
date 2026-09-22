@@ -16,6 +16,13 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Down and still, not shrugging as the weight gets heavy." },
+      { part: "Upper arms", text: "Locked at your sides the whole set — only the forearm moves." },
+      { part: "Wrists", text: "Slightly rotated by the angled bar, relaxed rather than bent." },
+      { part: "Torso", text: "Still — no leaning back to launch the weight." },
+    ],
     cues: [
       "The angled grip puts the wrists in a slightly rotated position — easier on the wrist and elbow than a straight bar.",
       "Upper arms stay vertical and locked at your sides; only the forearm moves.",
@@ -33,6 +40,13 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Down and still." },
+      { part: "Elbows", text: "Pinned to your ribs the whole set." },
+      { part: "Wrists", text: "Straight, stacked over your forearm — not curled back under the bar." },
+      { part: "Torso", text: "Upright, no swinging." },
+    ],
     cues: [
       "Hands about shoulder width, wrists straight and stacked over the forearm.",
       "Elbows pinned to your ribs for the whole set.",
@@ -53,6 +67,13 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Down and still." },
+      { part: "Elbows", text: "Stay at your sides, don't travel forward as you curl." },
+      { part: "Palms", text: "Face forward, or rotate out through the curl for more squeeze." },
+      { part: "Arms", text: "Fully straight at the bottom of every rep." },
+    ],
     cues: [
       "Start with the palms facing forward, or rotate them out as you curl for a bit more peak contraction.",
       "Elbows stay at your sides; don't let them travel forward as you curl.",
@@ -69,6 +90,13 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, neutral grip",
     primary: ["biceps", "forearms"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Down and still." },
+      { part: "Elbows", text: "Tight to your sides, no swing." },
+      { part: "Palms", text: "Face each other the whole way — the dumbbell stays vertical, like a hammer." },
+      { part: "Arms", text: "Lower under control, don't let the weight drop." },
+    ],
     cues: [
       "Palms face each other the whole way — the dumbbell stays vertical, like swinging a hammer.",
       "This hits the brachialis and the forearm more than a supinated curl, which is why it's in here alongside the others.",
@@ -91,6 +119,12 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Still, standing far enough from the stack that the cable pulls slightly forward at the bottom." },
+      { part: "Elbows", text: "Pinned to your sides for the whole set." },
+      { part: "Arms", text: "Slow lowering all the way to straight." },
+    ],
     cues: [
       "The cable keeps tension on the biceps at every point in the range, including the top — that's the advantage over free weights here.",
       "Stand far enough from the stack that the cable pulls slightly forward at the bottom.",
@@ -108,6 +142,12 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, pronated",
     primary: ["forearms", "biceps"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Grip", text: "Overhand, knuckles facing up." },
+      { part: "Wrists", text: "Held straight and neutral, not bent back — stop the set the moment they start to collapse." },
+      { part: "Elbows", text: "At your sides, slow and strict." },
+    ],
     cues: [
       "Overhand grip, knuckles facing up, wrist held straight and neutral rather than bent back.",
       "This targets the brachioradialis and forearm extensors — expect to use noticeably less weight than a normal curl.",
@@ -129,6 +169,13 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Resting on the bench." },
+      { part: "Upper arms", text: "Angled slightly back toward your head, staying in one place the whole set." },
+      { part: "Elbows", text: "Fixed — only the forearm moves." },
+      { part: "Forearms", text: "Lower the bar to just above or slightly behind your head." },
+      { part: "Lockout", text: "Stop just short of fully locking out, to keep tension on." },
+    ],
     cues: [
       "Angle the upper arms slightly back toward your head rather than straight vertical — it keeps tension on the triceps at lockout.",
       "Only the forearm moves. The elbows stay in one place for the entire set.",
@@ -149,6 +196,13 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Slight forward lean, standing close to the stack." },
+      { part: "Elbows", text: "Glued to your ribs the whole set — the upper arm never moves." },
+      { part: "Wrists", text: "Straight, not bent as you push down." },
+      { part: "Arms", text: "Straighten fully at the bottom, hold for a beat." },
+    ],
     cues: [
       "Stand close to the stack, slight forward lean, elbows glued to your ribs.",
       "Push down until the arms are straight and hold the lockout for a beat.",
@@ -169,6 +223,12 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Slight forward lean, standing close to the stack." },
+      { part: "Elbows", text: "Pinned — the upper arm never moves." },
+      { part: "Hands", text: "Pull the rope apart at the bottom, knuckles turning slightly outward." },
+    ],
     cues: [
       "Same setup as the bar version, but at the bottom pull the rope apart and turn the knuckles slightly outward.",
       "That split at lockout gets you a harder contraction on the lateral head than a fixed bar allows.",
@@ -189,6 +249,13 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension, supinated",
     primary: ["triceps"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Grip", text: "Underhand, palms facing up." },
+      { part: "Elbows", text: "Tight to your sides." },
+      { part: "Wrists", text: "Neutral — don't let them bend back under the load." },
+      { part: "Arms", text: "Full lockout, brief squeeze, controlled return." },
+    ],
     cues: [
       "Underhand grip, palms facing up. Expect to drop the weight a fair bit versus the overhand version.",
       "This biases the long head of the triceps, which is why it earns a slot of its own.",

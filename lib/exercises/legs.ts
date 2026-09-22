@@ -9,6 +9,15 @@ export const legs: Exercise[] = [
     primary: ["quads", "glutes"],
     secondary: ["hamstrings", "lowerBack", "core"],
     tempo: 3.6,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward or slightly down — don't crane your neck up." },
+      { part: "Bar", text: "Sits on your upper traps, not your neck." },
+      { part: "Chest", text: "Stays up the whole rep." },
+      { part: "Core", text: "Braced with a big belly breath before you descend, held the whole rep." },
+      { part: "Hips", text: "Sit down and slightly back as the knees travel forward." },
+      { part: "Knees", text: "Track out over your toes." },
+      { part: "Feet", text: "Flat, weight spread through the whole foot, bar staying over your mid-foot." },
+    ],
     cues: [
       "Bar on the upper traps, not the neck. Squeeze the bar down into your back and keep the chest up.",
       "Big breath into the belly and brace before you start descending. Hold it for the whole rep.",
@@ -30,6 +39,13 @@ export const legs: Exercise[] = [
     primary: ["quads", "glutes"],
     secondary: ["hamstrings"],
     tempo: 3.2,
+    bodyPosition: [
+      { part: "Head", text: "Resting on the seat back, neutral." },
+      { part: "Lower back", text: "Flat against the pad the entire set — the moment it lifts, you've gone too deep." },
+      { part: "Hips", text: "Stay on the seat, not curling up toward your chest." },
+      { part: "Knees", text: "Bend to roughly 90°, tracking in line with your toes." },
+      { part: "Feet", text: "Shoulder width on the plate, whole foot down, heels never lifting." },
+    ],
     cues: [
       "Feet about shoulder width in the middle of the plate, whole foot in contact — don't let the heels lift.",
       "Lower until the knees reach roughly 90°, or until your hips start to curl off the seat. That point is your depth.",
@@ -52,6 +68,11 @@ export const legs: Exercise[] = [
     primary: ["hamstrings"],
     secondary: ["calves"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Hips", text: "Stay down on the pad — the moment they lift, you're using your lower back." },
+      { part: "Knees", text: "Lined up with the machine's pivot point before you start." },
+      { part: "Feet/ankles", text: "Toes pointed away to bias the hamstring, or pulled toward you for more calf." },
+    ],
     cues: [
       "Line the knee joint up with the machine's pivot before you start — everything else follows from that.",
       "Curl as far as the machine allows and hold the squeeze for a beat at the bottom.",
@@ -72,6 +93,12 @@ export const legs: Exercise[] = [
     pattern: "Knee extension",
     primary: ["quads"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Back", text: "Against the pad, hands holding the handles for a stable base." },
+      { part: "Hips", text: "Stay down on the seat — don't lift them to get extra leverage." },
+      { part: "Knees", text: "Lined up with the machine's pivot point." },
+      { part: "Legs", text: "Extend to fully straight and pause, then lower slowly." },
+    ],
     cues: [
       "Back against the pad, hands on the handles, and line your knee up with the machine's pivot point.",
       "Extend to straight and pause for a beat — that top squeeze is where the quad does the most work.",
@@ -92,6 +119,12 @@ export const legs: Exercise[] = [
     pattern: "Hip abduction",
     primary: ["abductors", "glutes"],
     tempo: 2.6,
+    bodyPosition: [
+      { part: "Back", text: "Upright against the pad — pick a lean and keep it the same every set." },
+      { part: "Torso", text: "Still — don't rock side to side to help." },
+      { part: "Knees", text: "Push out against the pads, hold for a beat, then bring back in slowly." },
+      { part: "Feet", text: "Stay planted, don't let the whole leg rotate for extra range." },
+    ],
     cues: [
       "Sit upright with your back against the pad — leaning forward changes which part of the glute you hit, so pick one and stay there.",
       "Push the knees out against the pads and hold the end position for a beat.",
@@ -112,6 +145,12 @@ export const legs: Exercise[] = [
     pattern: "Hip adduction",
     primary: ["adductors"],
     tempo: 2.6,
+    bodyPosition: [
+      { part: "Back", text: "On the pad, hips square." },
+      { part: "Torso", text: "Upright — don't lean forward to help." },
+      { part: "Legs", text: "Start at a stretch you can control, not the widest setting." },
+      { part: "Knees", text: "Squeeze together, pause, then open back up slowly." },
+    ],
     cues: [
       "Set the starting width to a stretch you can actually control — not the widest notch on the machine.",
       "Squeeze the knees together and pause for a beat at the end.",
@@ -132,6 +171,11 @@ export const legs: Exercise[] = [
     pattern: "Ankle plantarflexion",
     primary: ["calves"],
     tempo: 2.6,
+    bodyPosition: [
+      { part: "Knees", text: "Straight but not locked." },
+      { part: "Ankles", text: "Balls of the feet on the block, heels hanging free." },
+      { part: "Feet", text: "Drop heels below the block for a full stretch, then rise all the way onto your toes." },
+    ],
     cues: [
       "Balls of the feet on the block with the heels hanging free.",
       "Drop the heels as far below the block as you comfortably can — the stretch at the bottom is most of the point.",
@@ -152,6 +196,11 @@ export const legs: Exercise[] = [
     pattern: "Ankle plantarflexion, knee bent",
     primary: ["calves"],
     tempo: 2.6,
+    bodyPosition: [
+      { part: "Thigh", text: "Pad sits low, just above the knee — not pressing on the kneecap." },
+      { part: "Knees", text: "Bent, which shifts the work to the soleus underneath the calf." },
+      { part: "Feet/ankles", text: "Full stretch at the bottom, full squeeze at the top, one second at each end." },
+    ],
     cues: [
       "Pad sits low on the thigh, just above the knee, so it doesn't dig into the kneecap.",
       "Bent knees take the big calf muscle out and put the soleus underneath it to work — that's why this earns a slot separate from the standing version.",

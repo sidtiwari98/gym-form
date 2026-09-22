@@ -10,6 +10,14 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Resting back against the pad, eyes forward." },
+      { part: "Shoulders", text: "Pulled back and down, pinned into the pad — not rolled forward." },
+      { part: "Chest", text: "Lifted up toward the handles." },
+      { part: "Elbows", text: "Bent to about 90° at the start, not flared out to the sides." },
+      { part: "Back", text: "Flat against the seat, no arching." },
+      { part: "Feet", text: "Flat on the floor, about hip width." },
+    ],
     cues: [
       "Set the seat so the handles line up with the middle of your chest, not your collarbones.",
       "Shoulder blades pinned back and down into the pad — think 'chest up, shoulders back'.",
@@ -31,6 +39,14 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3.4,
+    bodyPosition: [
+      { part: "Head", text: "Flat on the bench, chin tucked slightly — not craning to watch the bar." },
+      { part: "Shoulders", text: "Pulled back and pinned down into the bench, like you're tucking them into your back pockets." },
+      { part: "Chest", text: "Lifted up and slightly arched, so the bar meets your lower chest." },
+      { part: "Elbows", text: "About 45–60° out from your torso, tucked rather than flared to 90°." },
+      { part: "Lower back", text: "A small natural arch, glutes still touching the bench." },
+      { part: "Feet", text: "Flat on the floor, pushed down hard for a stable base." },
+    ],
     cues: [
       "Shoulder blades retracted and tucked down before you unrack — that's what protects the shoulder and gives you a stable base.",
       "Bar touches the lower chest, roughly at nipple line, not the throat.",
@@ -53,6 +69,14 @@ export const chest: Exercise[] = [
     primary: ["upperChest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Resting on the bench, eyes up." },
+      { part: "Bench angle", text: "30–45°, not steeper." },
+      { part: "Shoulders", text: "Pulled back into the pad, not shrugged toward your ears." },
+      { part: "Chest", text: "Lifted, aimed up toward the weights." },
+      { part: "Elbows", text: "Kept in, not flared wide at the bottom of the rep." },
+      { part: "Feet", text: "Flat on the floor for a stable base." },
+    ],
     cues: [
       "30–45° of incline is enough. Steeper than that and the front delt takes over from the upper chest.",
       "Press up and slightly back, so the weights finish over your collarbones rather than your face.",
@@ -74,6 +98,14 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Resting back against the pad." },
+      { part: "Shoulders", text: "Back and down, away from your ears." },
+      { part: "Chest", text: "Lifted and open toward the handles." },
+      { part: "Elbows", text: "Soft, fixed bend the whole set — they don't straighten or bend further." },
+      { part: "Upper arms", text: "Roughly level with your torso, not pressed forward." },
+      { part: "Feet", text: "Flat on the floor." },
+    ],
     cues: [
       "Keep a soft, fixed bend in the elbows the whole way — the angle shouldn't change; only the shoulder moves.",
       "Chest up, shoulders back and down. The pad should stop your upper arm roughly level with your torso.",
@@ -95,6 +127,13 @@ export const chest: Exercise[] = [
     primary: ["chest", "triceps"],
     secondary: ["frontDelts"],
     tempo: 3.2,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, looking forward or slightly down." },
+      { part: "Torso", text: "Leaned forward 15–20° to bias the chest, or upright to bias the triceps." },
+      { part: "Shoulders", text: "Pulled down away from your ears the whole way, even at the bottom." },
+      { part: "Elbows", text: "Travel back alongside your body, not out to the sides." },
+      { part: "Hips/legs", text: "Still — no swinging your legs for momentum." },
+    ],
     cues: [
       "Lean the torso forward maybe 15–20° to bias the chest; stay upright to bias the triceps.",
       "Lower until the upper arm is about parallel to the floor — that's deep enough for almost everyone.",

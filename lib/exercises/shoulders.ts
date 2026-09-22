@@ -10,6 +10,14 @@ export const shoulders: Exercise[] = [
     primary: ["frontDelts"],
     secondary: ["sideDelts", "triceps", "core"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Pulled back to start, then pushed 'through the window' as the bar passes your face." },
+      { part: "Shoulders", text: "Bar rests on the front delts to start, elbows slightly in front." },
+      { part: "Core", text: "Braced hard, glutes squeezed — this is what holds you upright." },
+      { part: "Arms", text: "Finish locked out overhead, biceps by your ears." },
+      { part: "Lower back", text: "No leaning back — stay tall." },
+      { part: "Feet", text: "Planted under the bar, roughly hip width." },
+    ],
     cues: [
       "Bar starts on the front delts, elbows slightly in front of the bar, forearms vertical.",
       "Squeeze the glutes and brace the abs — that's what stops the press turning into a standing incline press.",
@@ -32,6 +40,13 @@ export const shoulders: Exercise[] = [
     primary: ["frontDelts"],
     secondary: ["sideDelts", "triceps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Shoulders", text: "Handles start at about shoulder height, not above your ears." },
+      { part: "Back", text: "Flat against the pad, ribs down — no arching to move the weight." },
+      { part: "Grip", text: "Neutral or angled if the machine offers it — easier on the shoulder joint." },
+      { part: "Feet", text: "Flat on the floor." },
+    ],
     cues: [
       "Set the seat so the handles start at about shoulder height — not above your ears.",
       "Back flat against the pad, ribs down; don't arch to get the weight moving.",
@@ -53,6 +68,13 @@ export const shoulders: Exercise[] = [
     primary: ["sideDelts"],
     secondary: ["traps"],
     tempo: 2.8,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, eyes forward." },
+      { part: "Torso", text: "Small forward tilt, no swinging." },
+      { part: "Shoulders", text: "Stay down — don't let them creep up toward your ears." },
+      { part: "Elbows", text: "Lead the movement, a touch higher than your wrists at the top." },
+      { part: "Arms", text: "Raise out and slightly forward, to shoulder height, no higher." },
+    ],
     cues: [
       "Raise to shoulder height and no further — above that the traps take over.",
       "Lead with the elbows, not the hands. The elbow should be a touch higher than the wrist at the top.",
@@ -75,6 +97,13 @@ export const shoulders: Exercise[] = [
     primary: ["rearDelts"],
     secondary: ["upperBack"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "Neutral, resting forward against the pad if there is one." },
+      { part: "Chest", text: "Against the pad, torso still." },
+      { part: "Shoulders", text: "The back of the shoulder leads — not a shoulder-blade squeeze." },
+      { part: "Elbows", text: "Small, constant bend the whole rep." },
+      { part: "Arms", text: "Sweep out and back at roughly shoulder height, thumbs pointing slightly down." },
+    ],
     cues: [
       "Chest against the pad, small bend in the elbows held constant throughout.",
       "Sweep the arms out and back in a wide arc at roughly shoulder height, thumbs pointing slightly down.",
@@ -96,6 +125,13 @@ export const shoulders: Exercise[] = [
     primary: ["rearDelts"],
     secondary: ["upperBack", "traps"],
     tempo: 3,
+    bodyPosition: [
+      { part: "Head", text: "The rope finishes pointing at your forehead." },
+      { part: "Elbows", text: "Stay at shoulder height — this is a high pull, not a row to the chest." },
+      { part: "Hands", text: "Split apart as they arrive beside your ears, knuckles finishing up and back." },
+      { part: "Torso", text: "Upright, no leaning back to use bodyweight." },
+      { part: "Feet", text: "Staggered or hip width, stepped back so there's tension at the start." },
+    ],
     cues: [
       "Set the pulley at roughly upper-chest to face height and step back so there's tension at the start.",
       "Pull the rope toward your forehead, splitting your hands apart as they arrive beside your ears.",

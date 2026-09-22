@@ -5,7 +5,7 @@ import ExerciseNav from "@/components/ExerciseNav";
 import { EXERCISES, getExercise } from "@/lib/exercises";
 import { getDay } from "@/lib/routine";
 import { getGuideArt } from "@/lib/guide";
-import { MUSCLE_LABEL } from "@/lib/types";
+import { MUSCLE_LABEL, MUSCLE_LOCATION } from "@/lib/types";
 
 export function generateStaticParams() {
   return EXERCISES.map((e) => ({ slug: e.slug }));
@@ -53,7 +53,7 @@ export default async function ExercisePage({
         <div className="text-[12px] font-bold uppercase tracking-wider text-[var(--muted)] mb-2">
           Working
         </div>
-        <div className="flex flex-wrap gap-1.5">
+        <div className="flex flex-wrap gap-1.5 mb-3">
           {ex.primary.map((m) => (
             <span
               key={m}
@@ -73,9 +73,32 @@ export default async function ExercisePage({
             </span>
           ))}
         </div>
+        <ul className="space-y-1.5">
+          {[...ex.primary, ...(ex.secondary ?? [])].map((m) => (
+            <li key={m} className="text-[13px] leading-relaxed">
+              <span className="font-semibold">{MUSCLE_LABEL[m]}:</span>{" "}
+              <span className="text-[var(--muted)]">{MUSCLE_LOCATION[m]}</span>
+            </li>
+          ))}
+        </ul>
       </section>
 
-      <Section title="Form cues" accent>
+      {ex.bodyPosition && ex.bodyPosition.length > 0 && (
+        <Section title="Body position, head to toe" accent>
+          <ol className="space-y-2.5">
+            {ex.bodyPosition.map((b, n) => (
+              <li key={n} className="flex gap-2.5">
+                <span className="shrink-0 w-16 text-[12px] font-bold text-[var(--accent)] mt-0.5">
+                  {b.part}
+                </span>
+                <span className="text-[14px] leading-relaxed">{b.text}</span>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      )}
+
+      <Section title="Form cues">
         <ul className="space-y-2.5">
           {ex.cues.map((c, n) => (
             <li key={n} className="flex gap-2.5">
