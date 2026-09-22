@@ -10,6 +10,12 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3,
+    setup: [
+      { part: "Seat height", text: "Sit down first, then adjust the seat so the handles line up with the middle of your chest." },
+      { part: "Check it", text: "Grip the handles. Your upper arms should be roughly level with the floor, not angled sharply up or down." },
+      { part: "Too high or low?", text: "Handles near your chin means the seat is too high — that shifts the work to your front shoulders. Handles low on your ribs means it's too low." },
+      { part: "Grip", text: "Wrap your thumbs around the handles, wrists straight in line with your forearms." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Resting back against the pad, eyes forward." },
       { part: "Shoulders", text: "Pulled back and down, pinned into the pad — not rolled forward." },
@@ -39,6 +45,11 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3.4,
+    setup: [
+      { part: "Rack height", text: "Set the hooks so that, lying flat with your shoulder blades pulled back, the bar sits about level with your straightened arms — no need to shrug up or sink down to unrack it. If you're between two hook settings, pick the lower one." },
+      { part: "Grip width", text: "Hands just outside shoulder width — when the bar is on your chest, your forearms should be roughly vertical." },
+      { part: "Bench position", text: "Lie so your eyes are roughly under the bar, not your chest — that puts the bar over your mouth at the rack, which is where you want it once unracked." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Flat on the bench, chin tucked slightly — not craning to watch the bar." },
       { part: "Shoulders", text: "Pulled back and pinned down into the bench, like you're tucking them into your back pockets." },
@@ -69,6 +80,10 @@ export const chest: Exercise[] = [
     primary: ["upperChest"],
     secondary: ["frontDelts", "triceps"],
     tempo: 3,
+    setup: [
+      { part: "Bench angle", text: "30–45° on the adjustable pin. Start at the lower setting — steeper turns this into a shoulder press." },
+      { part: "Seat height (machine)", text: "Handles should be level with the top of your chest, near your collarbone, when you sit back fully." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Resting on the bench, eyes up." },
       { part: "Bench angle", text: "30–45°, not steeper." },
@@ -98,6 +113,11 @@ export const chest: Exercise[] = [
     primary: ["chest"],
     secondary: ["frontDelts"],
     tempo: 3,
+    setup: [
+      { part: "Seat height", text: "Sit so the handles (or arm pads) are at chest level — when you grip them, your elbows should sit slightly below your shoulders." },
+      { part: "Too low or high?", text: "Seat too low and your shoulders creep up toward your ears; too high and the movement feels awkward through your upper arm." },
+      { part: "Arm pads", text: "If the machine has forearm pads instead of handles, rest your forearms flat on them, elbows at the bend point." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Resting back against the pad." },
       { part: "Shoulders", text: "Back and down, away from your ears." },
@@ -127,6 +147,11 @@ export const chest: Exercise[] = [
     primary: ["chest", "triceps"],
     secondary: ["frontDelts"],
     tempo: 3.2,
+    setup: [
+      { part: "Bars", text: "Set to about shoulder width, running parallel — too wide strains the shoulders." },
+      { part: "Getting on", text: "Use a step or jump up so you start with your arms locked straight, body hanging clear of the bars." },
+      { part: "Assisted machine version", text: "If using an assisted-dip machine, pick a weight you can control for 8–10 reps — more assist weight makes it easier." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, looking forward or slightly down." },
       { part: "Torso", text: "Leaned forward 15–20° to bias the chest, or upright to bias the triceps." },

@@ -5,7 +5,7 @@ import ExerciseNav from "@/components/ExerciseNav";
 import { EXERCISES, getExercise } from "@/lib/exercises";
 import { getDay } from "@/lib/routine";
 import { getGuideArt } from "@/lib/guide";
-import { MUSCLE_LABEL, MUSCLE_LOCATION } from "@/lib/types";
+import { MUSCLE_LABEL, MUSCLE_LOCATION, type Checkpoint } from "@/lib/types";
 
 export function generateStaticParams() {
   return EXERCISES.map((e) => ({ slug: e.slug }));
@@ -83,18 +83,15 @@ export default async function ExercisePage({
         </ul>
       </section>
 
+      {ex.setup && ex.setup.length > 0 && (
+        <Section title="Setting up the machine" accent>
+          <Checklist items={ex.setup} />
+        </Section>
+      )}
+
       {ex.bodyPosition && ex.bodyPosition.length > 0 && (
         <Section title="Body position, head to toe" accent>
-          <ol className="space-y-2.5">
-            {ex.bodyPosition.map((b, n) => (
-              <li key={n} className="flex gap-2.5">
-                <span className="shrink-0 w-16 text-[12px] font-bold text-[var(--accent)] mt-0.5">
-                  {b.part}
-                </span>
-                <span className="text-[14px] leading-relaxed">{b.text}</span>
-              </li>
-            ))}
-          </ol>
+          <Checklist items={ex.bodyPosition} />
         </Section>
       )}
 
@@ -146,6 +143,21 @@ function Chip({ children }: { children: React.ReactNode }) {
     <span className="text-[12px] font-medium px-2.5 py-1 rounded-lg bg-[var(--panel-2)] text-[var(--muted)] border border-[var(--line)]">
       {children}
     </span>
+  );
+}
+
+function Checklist({ items }: { items: Checkpoint[] }) {
+  return (
+    <ol className="space-y-2.5">
+      {items.map((b, n) => (
+        <li key={n} className="flex gap-2.5">
+          <span className="shrink-0 w-[88px] text-[12px] font-bold text-[var(--accent)] mt-0.5">
+            {b.part}
+          </span>
+          <span className="text-[14px] leading-relaxed">{b.text}</span>
+        </li>
+      ))}
+    </ol>
   );
 }
 

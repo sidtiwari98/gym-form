@@ -37,8 +37,8 @@ export const MUSCLE_LOCATION: Record<Muscle, string> = {
   core: "Your stomach and sides — the muscles that brace your trunk.",
 };
 
-/** One checkpoint in a head-to-toe body position checklist, in the order the body reads. */
-export type BodyPosition = { part: string; text: string };
+/** One checkpoint in a checklist: a short label plus a plain-language line. */
+export type Checkpoint = { part: string; text: string };
 
 export type Exercise = {
   slug: string;
@@ -51,10 +51,16 @@ export type Exercise = {
   cues: string[];
   mistakes: string[];
   /**
+   * How to configure the machine, bench, rack, or cable before you start —
+   * seat height, pad position, pulley height, rack pins, grip width.
+   * The stuff that's wrong before the first rep even starts.
+   */
+  setup?: Checkpoint[];
+  /**
    * How your body should be positioned, head to toe, in plain language.
    * Ordered top to bottom; only the body parts that matter for this exercise.
    */
-  bodyPosition?: BodyPosition[];
+  bodyPosition?: Checkpoint[];
   /** Seconds per rep; drives the animation speed. */
   tempo?: number;
   /** Optional real footage, for anything the drawing can't fully carry. */

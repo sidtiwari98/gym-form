@@ -9,6 +9,11 @@ export const legs: Exercise[] = [
     primary: ["quads", "glutes"],
     secondary: ["hamstrings", "lowerBack", "core"],
     tempo: 3.6,
+    setup: [
+      { part: "Rack height", text: "Set the hooks so the bar sits about level with the top of your chest — low enough that you don't need to go up on your toes to unrack it." },
+      { part: "Safety pins", text: "If the rack has them, set them around groin height, low enough to clear a normal squat but high enough to catch the bar if you fail a rep." },
+      { part: "Bar position on your back", text: "Rest it on your upper traps (the meaty shelf below your neck), not on your neck itself." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward or slightly down — don't crane your neck up." },
       { part: "Bar", text: "Sits on your upper traps, not your neck." },
@@ -39,6 +44,11 @@ export const legs: Exercise[] = [
     primary: ["quads", "glutes"],
     secondary: ["hamstrings"],
     tempo: 3.2,
+    setup: [
+      { part: "Seat position", text: "Slide it so your knees bend to about 90° when your feet are in the middle of the plate — most machines have a lever or knob for this." },
+      { part: "Backrest angle", text: "If adjustable, a slight recline that supports your lower back, not flat upright." },
+      { part: "Feet", text: "Shoulder width, centered on the plate, toes pointing forward." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Resting on the seat back, neutral." },
       { part: "Lower back", text: "Flat against the pad the entire set — the moment it lifts, you've gone too deep." },
@@ -68,6 +78,10 @@ export const legs: Exercise[] = [
     primary: ["hamstrings"],
     secondary: ["calves"],
     tempo: 3,
+    setup: [
+      { part: "Ankle pad", text: "Set it to rest just above your ankles, on the back of your lower leg (lying version) or the front of your shins near your ankles (seated version) — not up on your calf or shin, which kills your leverage." },
+      { part: "Knee alignment", text: "Adjust the seat or bench so your knee joint lines up with the machine's pivot point (often marked with a dot or bolt)." },
+    ],
     bodyPosition: [
       { part: "Hips", text: "Stay down on the pad — the moment they lift, you're using your lower back." },
       { part: "Knees", text: "Lined up with the machine's pivot point before you start." },
@@ -93,11 +107,17 @@ export const legs: Exercise[] = [
     pattern: "Knee extension",
     primary: ["quads"],
     tempo: 3,
+    setup: [
+      { part: "Ankle pad (the roller)", text: "Set it low — resting on your shins just above your feet, near your ankles. Not on your feet, and not higher up your shin. Too low and your calves take over; too high and you lose leverage and the weight feels artificially heavy." },
+      { part: "Back pad", text: "Set it so the back of your knees sits right at the front edge of the seat." },
+      { part: "Knee alignment", text: "Your knee should line up with the machine's pivot point (usually a marked dot or bolt) before you load the weight." },
+    ],
     bodyPosition: [
       { part: "Back", text: "Against the pad, hands holding the handles for a stable base." },
       { part: "Hips", text: "Stay down on the seat — don't lift them to get extra leverage." },
       { part: "Knees", text: "Lined up with the machine's pivot point." },
       { part: "Legs", text: "Extend to fully straight and pause, then lower slowly." },
+      { part: "Feet", text: "Toes pulled back toward your shins at the top — this keeps the roller low and the quad, not the foot, doing the lifting." },
     ],
     cues: [
       "Back against the pad, hands on the handles. Line your knee up with the machine's pivot point.",
@@ -119,6 +139,11 @@ export const legs: Exercise[] = [
     pattern: "Hip abduction",
     primary: ["abductors", "glutes"],
     tempo: 2.6,
+    setup: [
+      { part: "Pad width", text: "Start with the pads set to a comfortable inward position, not the widest, most stretched setting — you'll open them from there." },
+      { part: "Pad contact", text: "The pads should rest against the outside of your knees, not your shins." },
+      { part: "Back angle", text: "Fully upright works, but leaning forward about 10–15° at the hips shifts more of the work to your glutes." },
+    ],
     bodyPosition: [
       { part: "Back", text: "Upright against the pad — pick a lean and keep it the same every set." },
       { part: "Torso", text: "Still — don't rock side to side to help." },
@@ -145,6 +170,9 @@ export const legs: Exercise[] = [
     pattern: "Hip adduction",
     primary: ["adductors"],
     tempo: 2.6,
+    setup: [
+      { part: "Starting width", text: "Set it to a stretch you can control, not the widest notch — your knees should be bent to about 90° with your feet on the pedals, knees against the inner pads." },
+    ],
     bodyPosition: [
       { part: "Back", text: "On the pad, hips square." },
       { part: "Torso", text: "Upright — don't lean forward to help." },
@@ -171,6 +199,10 @@ export const legs: Exercise[] = [
     pattern: "Ankle plantarflexion",
     primary: ["calves"],
     tempo: 2.6,
+    setup: [
+      { part: "Shoulder pads", text: "Adjust the height so the weight rests fully on your shoulders when you're standing tall — not so low that you start hunched over." },
+      { part: "Foot placement", text: "Step under the pads, balls of your feet on the platform edge, toes pointing straight ahead, heels hanging off." },
+    ],
     bodyPosition: [
       { part: "Knees", text: "Straight but not locked." },
       { part: "Ankles", text: "Balls of the feet on the block, heels hanging free." },
@@ -196,6 +228,10 @@ export const legs: Exercise[] = [
     pattern: "Ankle plantarflexion, knee bent",
     primary: ["calves"],
     tempo: 2.6,
+    setup: [
+      { part: "Knee pad", text: "Slide your thighs under it so it sits low, just above your knees, centered — not pressing on your kneecaps." },
+      { part: "Foot placement", text: "Balls of your feet on the platform, toes pointing forward, heels free to drop below the edge." },
+    ],
     bodyPosition: [
       { part: "Thigh", text: "Pad sits low, just above the knee — not pressing on the kneecap." },
       { part: "Knees", text: "Bent, which shifts the work to the soleus underneath the calf." },

@@ -16,6 +16,10 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    setup: [
+      { part: "Grip", text: "Use the angled part of the bar — the wider outer bend works the outer biceps a touch more, the inner bend works the inner head. Either is fine to start with." },
+      { part: "Stance", text: "Feet about shoulder width, bar hanging at arm's length in front of your thighs." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Down and still, not shrugging as the weight gets heavy." },
@@ -40,6 +44,9 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    setup: [
+      { part: "Grip", text: "Hands about shoulder width apart, overhand, bar hanging at arm's length." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Down and still." },
@@ -67,6 +74,9 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    setup: [
+      { part: "Stance", text: "Feet about shoulder width, one dumbbell in each hand at your sides." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Down and still." },
@@ -90,6 +100,9 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, neutral grip",
     primary: ["biceps", "forearms"],
     tempo: 2.8,
+    setup: [
+      { part: "Stance", text: "Feet about shoulder width, dumbbells at your sides with palms already facing in." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Down and still." },
@@ -119,6 +132,10 @@ export const arms: Exercise[] = [
     primary: ["biceps"],
     secondary: ["forearms"],
     tempo: 2.8,
+    setup: [
+      { part: "Pulley height", text: "Set to the lowest position, bar or straight handle attached." },
+      { part: "Stance", text: "Stand facing the machine, far enough back that the cable has tension even with your arms straight down." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Still, standing far enough from the stack that the cable pulls slightly forward at the bottom." },
@@ -142,6 +159,10 @@ export const arms: Exercise[] = [
     pattern: "Elbow flexion, pronated",
     primary: ["forearms", "biceps"],
     tempo: 2.8,
+    setup: [
+      { part: "Pulley height", text: "Lowest position, straight bar attached." },
+      { part: "Stance", text: "Stand facing the machine, close enough that your arms hang straight down to the bar." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Grip", text: "Overhand, knuckles facing up." },
@@ -169,6 +190,11 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 3,
+    setup: [
+      { part: "Bench", text: "Flat bench, lie down with your head near the end so the bar has room to travel back behind you." },
+      { part: "Grip", text: "Hands about shoulder width on the EZ bar's angled grip." },
+      { part: "Getting the bar up", text: "Have a spotter hand it to you, or curl it up from your thighs to a straight-arm start position over your chest before you begin." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Resting on the bench." },
       { part: "Upper arms", text: "Angled slightly back toward your head, staying in one place the whole set." },
@@ -196,6 +222,10 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
+    setup: [
+      { part: "Pulley height", text: "Highest position, straight bar attached." },
+      { part: "Grip", text: "Overhand, hands shoulder width or a little closer." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Slight forward lean, standing close to the stack." },
@@ -223,6 +253,9 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension",
     primary: ["triceps"],
     tempo: 2.8,
+    setup: [
+      { part: "Pulley height", text: "Highest position, rope attached." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Slight forward lean, standing close to the stack." },
@@ -249,6 +282,9 @@ export const arms: Exercise[] = [
     pattern: "Elbow extension, supinated",
     primary: ["triceps"],
     tempo: 2.8,
+    setup: [
+      { part: "Pulley height", text: "Highest position, straight bar attached." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Grip", text: "Underhand, palms facing up." },

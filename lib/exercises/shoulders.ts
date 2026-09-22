@@ -10,6 +10,10 @@ export const shoulders: Exercise[] = [
     primary: ["frontDelts"],
     secondary: ["sideDelts", "triceps", "core"],
     tempo: 3,
+    setup: [
+      { part: "Rack height", text: "Set the hooks around upper-chest height — just below your shoulders — so you can unrack without going up on your toes." },
+      { part: "Grip width", text: "Just outside shoulder width. When you unrack, the bar should already be sitting on your front shoulders." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Pulled back to start, then pushed 'through the window' as the bar passes your face." },
       { part: "Shoulders", text: "Bar rests on the front delts to start, elbows slightly in front." },
@@ -40,6 +44,11 @@ export const shoulders: Exercise[] = [
     primary: ["frontDelts"],
     secondary: ["sideDelts", "triceps"],
     tempo: 3,
+    setup: [
+      { part: "Seat height", text: "Handles should sit level with your shoulders, or just above — not up near your ears." },
+      { part: "Check it", text: "Grip the handles: your forearms should be roughly vertical, without feeling jammed at the bottom." },
+      { part: "Grip", text: "Use the angled or neutral handles if the machine has them — easier on your shoulders than a straight grip." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Handles start at about shoulder height, not above your ears." },
@@ -68,6 +77,9 @@ export const shoulders: Exercise[] = [
     primary: ["sideDelts"],
     secondary: ["traps"],
     tempo: 2.8,
+    setup: [
+      { part: "Stance", text: "Feet about shoulder width, one dumbbell in each hand at your sides." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Small forward tilt, no swinging." },
@@ -97,6 +109,10 @@ export const shoulders: Exercise[] = [
     primary: ["rearDelts"],
     secondary: ["upperBack"],
     tempo: 3,
+    setup: [
+      { part: "Machine version", text: "Seat height so the handles are at shoulder height when your arms are stretched out in front of you." },
+      { part: "Cable version", text: "Set both pulleys to about shoulder height and cross the cables — right hand takes the left handle, left hand the right — before you step back." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, resting forward against the pad if there is one." },
       { part: "Chest", text: "Against the pad, torso still." },
@@ -125,6 +141,11 @@ export const shoulders: Exercise[] = [
     primary: ["rearDelts"],
     secondary: ["upperBack", "traps"],
     tempo: 3,
+    setup: [
+      { part: "Pulley height", text: "Set to roughly upper-chest to face height — not the very top." },
+      { part: "Attachment", text: "Rope handle, double overhand or thumbs-up grip." },
+      { part: "Stance", text: "Step back far enough that there's tension on the cable before you start pulling." },
+    ],
     bodyPosition: [
       { part: "Head", text: "The rope finishes pointing at your forehead." },
       { part: "Elbows", text: "Stay at shoulder height — this is a high pull, not a row to the chest." },

@@ -9,6 +9,10 @@ export const back: Exercise[] = [
     primary: ["lats", "upperBack"],
     secondary: ["biceps", "rearDelts", "lowerBack"],
     tempo: 3,
+    setup: [
+      { part: "Grip width", text: "Just outside shoulder width, overhand." },
+      { part: "Picking up the bar", text: "If it's on the floor, set up like a deadlift: hinge at the hips, flat back, then stand it up before hinging forward into the row position. If it's on rack pins, set them around hip height so you don't have to bend down for it." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes down toward the floor a little ahead of you." },
       { part: "Torso", text: "Hinged forward to about 45° or a bit lower — held there the whole set." },
@@ -39,6 +43,11 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3.4,
+    setup: [
+      { part: "Assistance weight", text: "More weight on the pin means more help. Start heavy enough that you can do 6–10 controlled reps — around 70–80% of your bodyweight in assist is a common starting point — and reduce it as you get stronger." },
+      { part: "Knee pad", text: "Adjust it so your knees rest on it comfortably once you're kneeling, with your arms fully stretched overhead to the handles." },
+      { part: "Grip", text: "Slightly wider than shoulder width, overhand." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Shoulders", text: "Pulled down away from your ears before you start pulling with the arms." },
@@ -68,6 +77,11 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3,
+    setup: [
+      { part: "Thigh pad", text: "Lower it and slide your thighs under before you grab the bar, then it should press snugly on top of your thighs — that's what locks you in place." },
+      { part: "Seat height", text: "Set so your feet are flat on the floor, knees at about 90°, and you can reach the bar with arms fully extended." },
+      { part: "Grip width", text: "A little wider than shoulder width on the bar." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward — not tilted back to watch the bar." },
       { part: "Torso", text: "Leaned back about 15° and held there." },
@@ -98,6 +112,11 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["biceps", "upperBack"],
     tempo: 3,
+    setup: [
+      { part: "Thigh pad", text: "Lower it over your thighs before you grab the bar, snug but not painfully tight." },
+      { part: "Seat height", text: "Feet flat, knees at about 90°, bar reachable with your arms fully extended." },
+      { part: "Bar", text: "Swap the wide bar for the short close-grip bar or handle." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Leaned back slightly, held steady all set." },
@@ -127,6 +146,11 @@ export const back: Exercise[] = [
     primary: ["upperBack", "lats"],
     secondary: ["biceps", "rearDelts"],
     tempo: 3,
+    setup: [
+      { part: "Chest pad", text: "Set its distance so you can reach the handles with straight arms and shoulders pulled forward, without rounding your lower back to get there." },
+      { part: "Footplate", text: "Feet flat on the plate or floor, knees slightly bent, about shoulder width." },
+      { part: "Handles", text: "Set to be roughly level with your mid-chest when you're seated tall." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Chest", text: "Against the pad if there is one, upright and still." },
@@ -156,6 +180,10 @@ export const back: Exercise[] = [
     primary: ["lats"],
     secondary: ["core", "triceps"],
     tempo: 3,
+    setup: [
+      { part: "Pulley height", text: "Set to the highest position, bar or rope attached." },
+      { part: "Starting stance", text: "Stand facing the machine, far enough back that your arms are overhead and slightly in front of you to start." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, eyes forward." },
       { part: "Torso", text: "Hinged forward slightly, held steady — no rocking." },
@@ -185,6 +213,10 @@ export const back: Exercise[] = [
     primary: ["hamstrings", "glutes", "lowerBack"],
     secondary: ["core"],
     tempo: 3.2,
+    setup: [
+      { part: "Pad height", text: "Set it just below your hip bones, not higher up your stomach — too high and you can't hinge freely, so your lower back does all the work." },
+      { part: "Foot plate", text: "Tuck your ankles under the rollers or pads with your feet flat." },
+    ],
     bodyPosition: [
       { part: "Head", text: "In line with your spine, eyes toward the floor." },
       { part: "Back", text: "One straight line from head to heels the whole rep." },
@@ -213,6 +245,9 @@ export const back: Exercise[] = [
     primary: ["traps"],
     secondary: ["forearms"],
     tempo: 2.6,
+    setup: [
+      { part: "Grip", text: "Shoulder width, overhand, arms straight — pick the bar up like the top of a deadlift." },
+    ],
     bodyPosition: [
       { part: "Head", text: "Neutral, not craning forward as you shrug." },
       { part: "Shoulders", text: "Rise straight up toward your ears, then drop all the way down between reps." },
