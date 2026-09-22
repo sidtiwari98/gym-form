@@ -19,10 +19,10 @@ export const shoulders: Exercise[] = [
       { part: "Feet", text: "Planted under the bar, roughly hip width." },
     ],
     cues: [
-      "Bar starts on the front delts, elbows slightly in front of the bar, forearms vertical.",
-      "Squeeze the glutes and brace the abs — that's what stops the press turning into a standing incline press.",
-      "Pull your head back out of the way, press up, then push your head 'through' the window as the bar clears it.",
-      "Finish with the bar directly over the mid-foot, biceps by your ears.",
+      "Start with the bar on your front shoulders, elbows slightly in front, forearms vertical.",
+      "Squeeze your glutes and brace your abs. This stops you from leaning back as you press.",
+      "Pull your head back to start. Press up, then move your head forward as the bar clears it.",
+      "Finish with the bar over the middle of your foot, arms locked out by your ears.",
     ],
     mistakes: [
       "Leaning back through the lower back instead of bracing.",
@@ -48,10 +48,10 @@ export const shoulders: Exercise[] = [
       { part: "Feet", text: "Flat on the floor." },
     ],
     cues: [
-      "Set the seat so the handles start at about shoulder height — not above your ears.",
-      "Back flat against the pad, ribs down; don't arch to get the weight moving.",
-      "Neutral or angled grip is easier on the shoulder than a straight pronated grip, so use the alternate handles if the machine has them.",
-      "Press to near lockout, then lower under control to shoulder height.",
+      "Set the seat so the handles start at about shoulder height, not above your ears.",
+      "Keep your back flat against the pad. Don't arch to get the weight moving.",
+      "Use the angled handles if the machine has them. They're easier on your shoulders than a straight grip.",
+      "Press until your arms are almost straight, then lower under control back to shoulder height.",
     ],
     mistakes: [
       "Starting far too low, which dumps you into the weakest part of the shoulder's range.",
@@ -76,10 +76,10 @@ export const shoulders: Exercise[] = [
       { part: "Arms", text: "Raise out and slightly forward, to shoulder height, no higher." },
     ],
     cues: [
-      "Raise to shoulder height and no further — above that the traps take over.",
-      "Lead with the elbows, not the hands. The elbow should be a touch higher than the wrist at the top.",
-      "Raise slightly in front of your body (about 30°), not dead sideways. That's the plane the shoulder actually likes.",
-      "Small forward tilt of the torso, and no swinging. Lighter than your ego wants.",
+      "Raise to shoulder height and no higher. Going higher hands the work to your traps.",
+      "Lead with your elbows, not your hands. Your elbow should sit a touch higher than your wrist at the top.",
+      "Raise the weights slightly in front of your body, not straight out to the side.",
+      "Tilt your torso forward a little and don't swing. Use a lighter weight than you want to.",
     ],
     mistakes: [
       "Swinging the weights up with a hip bounce.",
@@ -105,10 +105,10 @@ export const shoulders: Exercise[] = [
       { part: "Arms", text: "Sweep out and back at roughly shoulder height, thumbs pointing slightly down." },
     ],
     cues: [
-      "Chest against the pad, small bend in the elbows held constant throughout.",
-      "Sweep the arms out and back in a wide arc at roughly shoulder height, thumbs pointing slightly down.",
-      "Think about pulling with the back of the shoulder, not squeezing the shoulder blades — that's a different exercise.",
-      "Very light. Rear delts respond to reps and control, not load.",
+      "Chest against the pad. Keep a small, constant bend in your elbows the whole set.",
+      "Sweep your arms out and back at roughly shoulder height, thumbs pointing slightly down.",
+      "Focus on pulling with the back of your shoulder, not squeezing your shoulder blades together.",
+      "Use a very light weight. This exercise is about control, not load.",
     ],
     mistakes: [
       "Bending the elbows through the rep so it becomes a wide row.",
@@ -133,10 +133,10 @@ export const shoulders: Exercise[] = [
       { part: "Feet", text: "Staggered or hip width, stepped back so there's tension at the start." },
     ],
     cues: [
-      "Set the pulley at roughly upper-chest to face height and step back so there's tension at the start.",
-      "Pull the rope toward your forehead, splitting your hands apart as they arrive beside your ears.",
-      "Elbows stay at shoulder height — this is a high pull, not a row to the chest.",
-      "Externally rotate at the end so the knuckles finish pointing up and back. Hold for a beat.",
+      "Set the pulley at roughly face height. Step back so there's tension before you start pulling.",
+      "Pull the rope toward your forehead. Split your hands apart as they reach your ears.",
+      "Keep your elbows at shoulder height. This is a high pull, not a row to your chest.",
+      "Rotate your hands at the end so your knuckles point up and back. Hold for a beat.",
     ],
     mistakes: [
       "Letting the elbows drop, which turns it into an upper-back row and skips the rear delts.",

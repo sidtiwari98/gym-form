@@ -18,10 +18,10 @@ export const back: Exercise[] = [
       { part: "Knees", text: "Softly bent, not locked straight." },
     ],
     cues: [
-      "Hinge at the hips to roughly 45° or a bit lower, knees softly bent, and hold that torso angle for the whole set.",
+      "Hinge at your hips to about 45° or a bit lower. Knees softly bent. Hold that angle the whole set.",
       "Pull the bar to your lower ribs or belly button, not your chest.",
-      "Lead with the elbows and think about driving them back and past your ribs, not about pulling with the hands.",
-      "Brace hard. The lower back's job here is to not move.",
+      "Lead with your elbows. Drive them back, past your ribs — don't just pull with your hands.",
+      "Brace hard. Your lower back's job here is to stay still.",
     ],
     mistakes: [
       "Standing up a little on every rep so the torso angle rises with the weight — that's a cheat rep.",
@@ -48,10 +48,10 @@ export const back: Exercise[] = [
       { part: "Knees", text: "Resting on the assist pad, relaxed." },
     ],
     cues: [
-      "Start from a dead hang with the shoulders pulled down — the first move is the shoulder blades, before the arms.",
-      "Pull your chest toward the bar rather than your chin over it; that keeps the lats working.",
-      "Pick the least assistance you can control. More assist weight = easier.",
-      "Lower all the way down under control; the negative is most of the value here.",
+      "Start from a dead hang, shoulders pulled down. The first move is your shoulder blades, before your arms.",
+      "Pull your chest toward the bar, not your chin over it. That keeps your lats working.",
+      "Pick the least assistance weight you can control. More assist weight makes it easier.",
+      "Lower all the way down under control. This part matters most.",
     ],
     mistakes: [
       "Kipping or bouncing off the knee pad.",
@@ -77,10 +77,10 @@ export const back: Exercise[] = [
       { part: "Hips", text: "Planted on the seat, thighs locked under the pads." },
     ],
     cues: [
-      "Grip a little wider than shoulder width — much wider just shortens the range without adding lat work.",
-      "Slight lean back, about 15°, and hold it. Chest up toward the bar.",
-      "Pull to the top of your chest and think 'elbows into your back pockets'.",
-      "Let the bar travel all the way up and let the shoulder blades rise at the top for a full stretch.",
+      "Grip a little wider than shoulder width. Going much wider doesn't add more lat work.",
+      "Lean back slightly, about 15°, and hold it. Chest up toward the bar.",
+      "Pull to the top of your chest. Think: elbows into your back pockets.",
+      "Let the bar rise all the way back up for a full stretch.",
     ],
     mistakes: [
       "Pulling behind the neck — no upside, real shoulder risk.",
@@ -107,10 +107,10 @@ export const back: Exercise[] = [
       { part: "Hips", text: "Planted on the seat, legs locked under the pads." },
     ],
     cues: [
-      "Hands roughly shoulder-width on the short bar, elbows tracking close to the ribs.",
-      "The close grip gives you more range — use it, and pull the bar right down to the sternum.",
-      "Same lean-back as the wide version, held steady the whole set.",
-      "Stretch fully at the top before the next rep.",
+      "Hands roughly shoulder-width on the short bar. Elbows track close to your ribs.",
+      "Pull the bar all the way down to your sternum. The close grip gives you more range, so use it.",
+      "Lean back slightly, the same as the wide-grip version. Hold that angle the whole set.",
+      "Let your arms stretch fully at the top before the next rep.",
     ],
     mistakes: [
       "Leaning back progressively further as you fatigue.",
@@ -136,10 +136,10 @@ export const back: Exercise[] = [
       { part: "Feet", text: "Braced against the footplate." },
     ],
     cues: [
-      "Chest against the pad if the machine has one, torso upright and still — the movement is arms and shoulder blades only.",
-      "Pull the handles to your lower ribs and hold the squeeze for a beat.",
-      "Let the shoulder blades travel forward at the end of each rep for a full stretch, without rounding the lower back.",
-      "Elbows stay close to the body for more mid-back, out wide for more rear delt.",
+      "Chest against the pad if there is one. Torso upright and still. Only your arms and shoulder blades move.",
+      "Pull the handles to your lower ribs. Hold the squeeze for a beat.",
+      "Let your shoulder blades travel forward at the end of each rep for a full stretch. Don't round your lower back.",
+      "Keep your elbows close to your body for more mid-back work, or wide for more rear delt.",
     ],
     mistakes: [
       "Rowing with the torso — leaning back on the pull and forward on the return.",
@@ -164,10 +164,10 @@ export const back: Exercise[] = [
       { part: "Core", text: "Braced to keep the torso still." },
     ],
     cues: [
-      "Hinge forward slightly, arms nearly straight with a fixed soft elbow bend.",
-      "Sweep the bar down in a big arc to your thighs — the shoulder is the only joint that moves.",
-      "Squeeze the lats hard at the bottom, then let the arms rise back overhead for a full stretch.",
-      "Light weight. If you need to bend the elbows to move it, it's too heavy.",
+      "Hinge forward slightly. Arms nearly straight, with a fixed soft bend in your elbows.",
+      "Sweep the bar down in a big arc to your thighs. Only your shoulders should move.",
+      "Squeeze your lats hard at the bottom. Let your arms rise back overhead for a full stretch.",
+      "Use a light weight. If you need to bend your elbows to move it, it's too heavy.",
     ],
     mistakes: [
       "Bending the elbows and turning it into a triceps pushdown.",
@@ -193,10 +193,10 @@ export const back: Exercise[] = [
       { part: "Knees", text: "Soft, not locked." },
     ],
     cues: [
-      "Set the pad just below the hip bones so you can hinge freely — too high and your lower back does all the work.",
-      "The movement is a hip hinge: fold at the hips, keep the spine in one straight line from head to heels.",
-      "Come up until your body is in line with your legs and stop. Don't arch up past straight.",
-      "Squeeze the glutes at the top. Start bodyweight, then hug a plate to your chest as it gets easy.",
+      "Set the pad just below your hip bones so you can hinge freely. Too high, and your lower back does all the work.",
+      "Fold at your hips. Keep your spine in one straight line from head to heels.",
+      "Come up until your body is in line with your legs, then stop. Don't arch up past straight.",
+      "Squeeze your glutes at the top. Start with just your bodyweight, then hug a plate to your chest once that's easy.",
     ],
     mistakes: [
       "Cranking into hyperextension at the top, which is where people tweak their back.",
@@ -220,10 +220,10 @@ export const back: Exercise[] = [
       { part: "Torso", text: "Upright and still." },
     ],
     cues: [
-      "Shrug straight up toward your ears — the traps elevate, they don't rotate.",
-      "Pause for a second at the top; that squeeze is the whole exercise.",
-      "Arms stay straight and act as hooks. No pulling with the biceps.",
-      "Let the shoulders drop all the way down between reps for a full stretch.",
+      "Shrug straight up toward your ears. Don't roll your shoulders.",
+      "Pause for a second at the top. That squeeze is the whole exercise.",
+      "Keep your arms straight, just acting as hooks. Don't pull with your biceps.",
+      "Let your shoulders drop all the way down between reps for a full stretch.",
     ],
     mistakes: [
       "Rolling the shoulders backward — adds nothing and irritates the joint.",

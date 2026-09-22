@@ -19,10 +19,10 @@ export const legs: Exercise[] = [
       { part: "Feet", text: "Flat, weight spread through the whole foot, bar staying over your mid-foot." },
     ],
     cues: [
-      "Bar on the upper traps, not the neck. Squeeze the bar down into your back and keep the chest up.",
-      "Big breath into the belly and brace before you start descending. Hold it for the whole rep.",
-      "Sit down and slightly back at the same time — knees travel forward, hips travel back.",
-      "Knees track out over the toes; drive the floor away and keep the bar over the mid-foot the whole way.",
+      "Rest the bar on your upper traps, not your neck. Keep your chest up.",
+      "Take a big breath into your belly and brace before you descend. Hold it for the whole rep.",
+      "Sit down and slightly back at the same time. Your knees move forward, your hips move back.",
+      "Keep your knees tracking over your toes. Push the floor away and keep the bar over the middle of your foot.",
     ],
     mistakes: [
       "Knees caving inward on the way up — usually the last rep or two of a hard set.",
@@ -47,10 +47,10 @@ export const legs: Exercise[] = [
       { part: "Feet", text: "Shoulder width on the plate, whole foot down, heels never lifting." },
     ],
     cues: [
-      "Feet about shoulder width in the middle of the plate, whole foot in contact — don't let the heels lift.",
-      "Lower until the knees reach roughly 90°, or until your hips start to curl off the seat. That point is your depth.",
-      "Push through the mid-foot and heel, and stop just short of locking the knees out at the top.",
-      "Keep your lower back flat against the pad the entire set.",
+      "Feet about shoulder width apart, in the middle of the plate. Keep your whole foot down, don't let your heels lift.",
+      "Lower until your knees reach roughly 90°, or until your hips start to curl off the seat. That's your depth limit.",
+      "Push through your mid-foot and heel. Stop just short of locking your knees out at the top.",
+      "Keep your lower back flat against the pad the whole set.",
     ],
     mistakes: [
       "Going so deep that the pelvis tucks under and the lower back rounds off the pad — the single most common way people hurt themselves on this machine.",
@@ -74,10 +74,10 @@ export const legs: Exercise[] = [
       { part: "Feet/ankles", text: "Toes pointed away to bias the hamstring, or pulled toward you for more calf." },
     ],
     cues: [
-      "Line the knee joint up with the machine's pivot before you start — everything else follows from that.",
-      "Curl as far as the machine allows and hold the squeeze for a beat at the bottom.",
-      "Keep the hips down; the moment they lift off the pad you're using your lower back.",
-      "Point the toes away to bias the hamstring, or pull them toward you to bring in more calf.",
+      "Line your knee up with the machine's pivot point before you start.",
+      "Curl as far as the machine allows. Hold the squeeze for a beat.",
+      "Keep your hips down on the pad. The moment they lift, your lower back is taking over.",
+      "Point your toes away to work your hamstrings more, or pull them toward you to bring in more calf.",
     ],
     mistakes: [
       "Hips rising off the seat or pad to help finish the rep.",
@@ -100,10 +100,10 @@ export const legs: Exercise[] = [
       { part: "Legs", text: "Extend to fully straight and pause, then lower slowly." },
     ],
     cues: [
-      "Back against the pad, hands on the handles, and line your knee up with the machine's pivot point.",
-      "Extend to straight and pause for a beat — that top squeeze is where the quad does the most work.",
-      "Lower slowly and stop just before the weight stack touches down, keeping tension the whole set.",
-      "Don't slam into lockout with heavy weight; build up gradually on this one.",
+      "Back against the pad, hands on the handles. Line your knee up with the machine's pivot point.",
+      "Extend to fully straight and pause for a beat. That top squeeze is where your quads work hardest.",
+      "Lower slowly and stop just before the weight stack touches down. Keep tension on the whole set.",
+      "Don't slam into lockout with a heavy weight. Build up gradually on this one.",
     ],
     mistakes: [
       "Kicking the weight up with a jerk and freewheeling it back down.",
@@ -126,10 +126,10 @@ export const legs: Exercise[] = [
       { part: "Feet", text: "Stay planted, don't let the whole leg rotate for extra range." },
     ],
     cues: [
-      "Sit upright with your back against the pad — leaning forward changes which part of the glute you hit, so pick one and stay there.",
-      "Push the knees out against the pads and hold the end position for a beat.",
-      "Bring them back in slowly rather than letting the stack snap them closed.",
-      "Feet stay planted; don't let the whole leg rotate to cheat extra range.",
+      "Sit upright with your back against the pad. Pick one lean and stay there every set.",
+      "Push your knees out against the pads. Hold the end position for a beat.",
+      "Bring them back in slowly, rather than letting the stack snap them closed.",
+      "Keep your feet planted. Don't let your whole leg rotate for extra range.",
     ],
     mistakes: [
       "Rocking the torso side to side to help the legs open.",
@@ -152,9 +152,9 @@ export const legs: Exercise[] = [
       { part: "Knees", text: "Squeeze together, pause, then open back up slowly." },
     ],
     cues: [
-      "Set the starting width to a stretch you can actually control — not the widest notch on the machine.",
-      "Squeeze the knees together and pause for a beat at the end.",
-      "Open back up slowly. The controlled stretch is doing as much work as the squeeze.",
+      "Set the starting width to a stretch you can control, not the widest setting on the machine.",
+      "Squeeze your knees together and pause for a beat at the end.",
+      "Open back up slowly. The stretch matters as much as the squeeze.",
       "Keep your back on the pad and your hips square.",
     ],
     mistakes: [
@@ -177,10 +177,10 @@ export const legs: Exercise[] = [
       { part: "Feet", text: "Drop heels below the block for a full stretch, then rise all the way onto your toes." },
     ],
     cues: [
-      "Balls of the feet on the block with the heels hanging free.",
-      "Drop the heels as far below the block as you comfortably can — the stretch at the bottom is most of the point.",
-      "Rise all the way onto the toes and pause for a second at the top.",
-      "Keep the knees straight but not locked. Slow reps beat bouncy ones here.",
+      "Balls of your feet on the block, heels hanging free.",
+      "Drop your heels as far below the block as feels comfortable. That stretch is most of the point.",
+      "Rise all the way onto your toes and pause for a second at the top.",
+      "Keep your knees straight but not locked. Go slow — bouncing wastes the exercise.",
     ],
     mistakes: [
       "Bouncing on the achilles tendon with tiny fast reps.",
@@ -202,10 +202,10 @@ export const legs: Exercise[] = [
       { part: "Feet/ankles", text: "Full stretch at the bottom, full squeeze at the top, one second at each end." },
     ],
     cues: [
-      "Pad sits low on the thigh, just above the knee, so it doesn't dig into the kneecap.",
-      "Bent knees take the big calf muscle out and put the soleus underneath it to work — that's why this earns a slot separate from the standing version.",
-      "Full stretch at the bottom, full squeeze at the top, one second at each end.",
-      "Higher reps suit this one; 15–20 is right.",
+      "The pad sits low on your thigh, just above the knee, so it doesn't dig into your kneecap.",
+      "Bending your knees works a different, deeper calf muscle than the standing version does.",
+      "Full stretch at the bottom, full squeeze at the top. Hold each for one second.",
+      "Use higher reps for this one — 15 to 20 is right.",
     ],
     mistakes: [
       "Short bouncy reps using only the middle of the range.",

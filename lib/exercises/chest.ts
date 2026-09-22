@@ -19,10 +19,10 @@ export const chest: Exercise[] = [
       { part: "Feet", text: "Flat on the floor, about hip width." },
     ],
     cues: [
-      "Set the seat so the handles line up with the middle of your chest, not your collarbones.",
-      "Shoulder blades pinned back and down into the pad — think 'chest up, shoulders back'.",
-      "Press until the elbows are almost locked, then stop; don't let the shoulders roll forward to chase extra range.",
-      "Control the return until you feel a stretch across the chest, about level with your torso.",
+      "Set the seat so the handles are level with the middle of your chest, not your collarbones.",
+      "Pull your shoulder blades back and down into the pad. Chest up, shoulders back.",
+      "Press until your elbows are almost straight, then stop. Don't let your shoulders roll forward.",
+      "Lower slowly until you feel a stretch across your chest.",
     ],
     mistakes: [
       "Seat too low, so you press upward and it turns into a shoulder exercise.",
@@ -48,10 +48,10 @@ export const chest: Exercise[] = [
       { part: "Feet", text: "Flat on the floor, pushed down hard for a stable base." },
     ],
     cues: [
-      "Shoulder blades retracted and tucked down before you unrack — that's what protects the shoulder and gives you a stable base.",
-      "Bar touches the lower chest, roughly at nipple line, not the throat.",
-      "Elbows at about 45–60° from the torso; tucked, not flared straight out.",
-      "Drive your feet into the floor and keep your glutes on the bench the whole set.",
+      "Pull your shoulder blades back and down before you unrack. This protects your shoulders and gives you a stable base.",
+      "Lower the bar to your lower chest, not your throat.",
+      "Keep your elbows tucked, at about 45–60° from your torso. Don't flare them straight out.",
+      "Push your feet into the floor. Keep your glutes on the bench the whole set.",
     ],
     mistakes: [
       "Bouncing the bar off the ribcage instead of controlling the touch.",
@@ -78,10 +78,10 @@ export const chest: Exercise[] = [
       { part: "Feet", text: "Flat on the floor for a stable base." },
     ],
     cues: [
-      "30–45° of incline is enough. Steeper than that and the front delt takes over from the upper chest.",
-      "Press up and slightly back, so the weights finish over your collarbones rather than your face.",
-      "Keep the shoulder blades pulled back into the pad — don't let them shrug up toward your ears.",
-      "Lower until the elbows are level with the torso, then reverse.",
+      "Set the bench to 30–45°. Any steeper and your front shoulder takes over from your chest.",
+      "Press up and slightly back, so the weights finish over your collarbones, not your face.",
+      "Keep your shoulder blades pulled back into the pad. Don't let them creep up toward your ears.",
+      "Lower until your elbows are level with your torso, then press back up.",
     ],
     mistakes: [
       "Setting the bench near-vertical, which turns it into an overhead press.",
@@ -107,10 +107,10 @@ export const chest: Exercise[] = [
       { part: "Feet", text: "Flat on the floor." },
     ],
     cues: [
-      "Keep a soft, fixed bend in the elbows the whole way — the angle shouldn't change; only the shoulder moves.",
-      "Chest up, shoulders back and down. The pad should stop your upper arm roughly level with your torso.",
-      "Squeeze for a beat at the point where the handles meet, then let them travel back slowly.",
-      "This one is about the stretch and the squeeze, not the load. Go lighter than you think.",
+      "Keep a soft, fixed bend in your elbows the whole way. Only your shoulder should move.",
+      "Chest up, shoulders back and down.",
+      "Squeeze for a beat when the handles meet, then let them travel back slowly.",
+      "Go lighter than you think. This exercise is about the stretch and the squeeze, not the weight.",
     ],
     mistakes: [
       "Bending and straightening the elbows, which quietly turns the fly into a press.",
@@ -135,10 +135,10 @@ export const chest: Exercise[] = [
       { part: "Hips/legs", text: "Still — no swinging your legs for momentum." },
     ],
     cues: [
-      "Lean the torso forward maybe 15–20° to bias the chest; stay upright to bias the triceps.",
-      "Lower until the upper arm is about parallel to the floor — that's deep enough for almost everyone.",
-      "Keep the shoulders pulled down away from the ears at the bottom. If they shrug up, you've gone too deep.",
-      "Elbows travel back alongside you, not out to the sides.",
+      "Lean forward about 15–20° to work your chest more, or stay upright to work your triceps more.",
+      "Lower until your upper arm is about parallel to the floor. That's deep enough.",
+      "Keep your shoulders down, away from your ears, even at the bottom. If they shrug up, you've gone too deep.",
+      "Your elbows should travel back alongside you, not out to the sides.",
     ],
     mistakes: [
       "Dropping below parallel and letting the shoulders roll forward under load.",
